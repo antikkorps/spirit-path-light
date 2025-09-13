@@ -1,94 +1,336 @@
 ---
+import ServiceCard from '../components/ServiceCard.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Spirit Path Light - Accueil">
-				<!-- HERO SECTION FULL WIDTH IMMERSIF & FÉÉRIQUE -->
-				<section class="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden pt-0" style="margin-top:-64px;">
-				<img src="https://images.unsplash.com/photo-1579101451346-4d0cd752f4b8?auto=format&fit=crop&w=1100" alt="Ambiance féérique nature" class="absolute inset-0 w-full h-full object-cover object-center scale-105 brightness-90" loading="lazy" />
-				<!-- Overlays féériques -->
-				<div class="absolute inset-0 bg-gradient-to-br from-primary/40 via-secondary/30 to-accent/40 mix-blend-multiply"></div>
-				<div class="absolute left-1/4 top-0 w-96 h-96 bg-secondary/30 rounded-full blur-3xl opacity-70 animate-pulse" style="z-index:2;"></div>
-				<div class="absolute right-0 bottom-0 w-80 h-80 bg-primary/20 rounded-full blur-2xl opacity-60 animate-fade-in" style="z-index:2;"></div>
-				<div class="absolute left-0 bottom-0 w-60 h-60 bg-accent/30 rounded-full blur-2xl opacity-50 animate-fade-in" style="z-index:2;"></div>
-				<!-- Contenu central -->
-				<div class="relative z-10 w-full flex flex-col items-center justify-center text-center px-4 py-32" style="padding-top:7rem;">
-					<h1 class="text-6xl md:text-7xl font-display font-bold text-white drop-shadow-[0_4px_32px_rgba(74,107,78,0.5)] mb-8 animate-fade-in">Quand l'invisible
+	<!-- HERO SECTION IMMERSIVE & SPIRITUELLE -->
+	<section class="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden pt-0" style="margin-top:-64px;">
+		<img src="/assets/images/sous-bois.png" alt="Ambiance spirituelle nature" class="absolute inset-0 w-full h-full object-cover object-center scale-115 brightness-90" loading="lazy" />
+		
+		<!-- Overlays spirituels -->
+		<div class="absolute inset-0 bg-gradient-to-br from-primary/40 via-secondary/30 to-accent/40 mix-blend-multiply"></div>
+		<div class="absolute left-1/4 top-0 w-96 h-96 bg-secondary/30 rounded-full blur-3xl opacity-70 animate-pulse" style="z-index:2;"></div>
+		<div class="absolute right-0 bottom-0 w-80 h-80 bg-primary/20 rounded-full blur-2xl opacity-60 animate-fade-in" style="z-index:2;"></div>
+		<div class="absolute left-0 bottom-0 w-60 h-60 bg-accent/30 rounded-full blur-2xl opacity-50 animate-fade-in" style="z-index:2;"></div>
+		
+		<!-- Contenu central -->
+		<div class="relative z-10 w-full flex flex-col items-center justify-center text-center px-4 py-32" style="padding-top:7rem;">
+			<h1 class="text-6xl md:text-7xl font-display font-bold text-white drop-shadow-[0_4px_32px_rgba(74,107,78,0.5)] mb-8 animate-fade-in">Quand l'invisible
 éclaire ton chemin</h1>
-					<blockquote class="italic text-2xl md:text-3xl text-white/90 mb-10 bg-white/10 rounded-2xl px-8 py-6 shadow-2xl backdrop-blur-md animate-fade-in">
-						"La lumière que tu cherches est déjà en toi."
-					</blockquote>
-					<a href="#decouvrir" class="btn btn-primary btn-lg shadow-xl animate-pulse">Commencer le voyage</a>
-				</div>
-				<!-- Effet de particules féériques (simples points lumineux) -->
-				<div class="pointer-events-none absolute inset-0 z-20">
-					<div class="absolute top-1/3 left-1/4 w-2 h-2 bg-white/80 rounded-full blur-[2px] animate-pulse" style="animation-delay:0.2s"></div>
-					<div class="absolute top-2/3 left-2/3 w-1.5 h-1.5 bg-secondary/80 rounded-full blur-[1.5px] animate-fade-in" style="animation-delay:0.6s"></div>
-					<div class="absolute top-1/2 left-3/4 w-2.5 h-2.5 bg-accent/80 rounded-full blur-[3px] animate-fade-in" style="animation-delay:1s"></div>
-					<div class="absolute top-1/4 left-3/5 w-1.5 h-1.5 bg-white/60 rounded-full blur-[2px] animate-fade-in" style="animation-delay:1.3s"></div>
-					<div class="absolute top-2/5 left-1/2 w-2 h-2 bg-primary/70 rounded-full blur-[2px] animate-fade-in" style="animation-delay:1.7s"></div>
-				</div>
-				<div class="absolute inset-0 bg-gradient-to-b from-base-100/60 to-base-100/90 pointer-events-none"></div>
-			</section>
+			<blockquote class="italic text-2xl md:text-3xl text-white/90 mb-10 bg-white/10 rounded-2xl px-8 py-6 shadow-2xl backdrop-blur-md animate-fade-in">
+				"La lumière que tu cherches est déjà en toi."
+			</blockquote>
+			<a href="#decouvrir" class="btn btn-primary btn-lg shadow-xl animate-pulse">Commencer le voyage intérieur</a>
+		</div>
+		
+		<!-- Effet de particules spirituelles -->
+		<div class="pointer-events-none absolute inset-0 z-20">
+			<div class="absolute top-1/3 left-1/4 w-2 h-2 bg-white/80 rounded-full blur-[2px] animate-pulse" style="animation-delay:0.2s"></div>
+			<div class="absolute top-2/3 left-2/3 w-1.5 h-1.5 bg-secondary/80 rounded-full blur-[1.5px] animate-fade-in" style="animation-delay:0.6s"></div>
+			<div class="absolute top-1/2 left-3/4 w-2.5 h-2.5 bg-accent/80 rounded-full blur-[3px] animate-fade-in" style="animation-delay:1s"></div>
+			<div class="absolute top-1/4 left-3/5 w-1.5 h-1.5 bg-white/60 rounded-full blur-[2px] animate-fade-in" style="animation-delay:1.3s"></div>
+			<div class="absolute top-2/5 left-1/2 w-2 h-2 bg-primary/70 rounded-full blur-[2px] animate-fade-in" style="animation-delay:1.7s"></div>
+		</div>
+		<div class="absolute inset-0 bg-gradient-to-b from-base-100/60 to-base-100/90 pointer-events-none"></div>
+	</section>
 
-				<!-- WRAPPER POUR LES AUTRES SECTIONS -->
-				<div class="container mx-auto px-4">
+	<!-- WRAPPER POUR LES AUTRES SECTIONS -->
+	<div class="container mx-auto px-4">
 
+		<!-- SECTION PRATIQUES SPIRITUELLES -->
 		<section class="py-16">
-		<h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
-			Derniers articles
-		</h2>
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-			<article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-				<div class="h-48 bg-gradient-to-r from-purple-400 to-blue-400"></div>
-				<div class="p-6">
-					<h3 class="text-xl font-semibold text-gray-800 mb-2">La méditation pour débutants</h3>
-					<p class="text-gray-600 mb-4">Découvrez les bases de la méditation et comment commencer votre pratique quotidienne.</p>
-					<a href="#" class="text-purple-500 hover:text-purple-700 font-medium">Lire plus →</a>
-				</div>
-			</article>
-			
-			<article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-				<div class="h-48 bg-gradient-to-r from-blue-400 to-cyan-400"></div>
-				<div class="p-6">
-					<h3 class="text-xl font-semibold text-gray-800 mb-2">Trouver sa paix intérieure</h3>
-					<p class="text-gray-600 mb-4">Des conseils pratiques pour cultiver la sérénité dans votre vie quotidienne.</p>
-					<a href="#" class="text-purple-500 hover:text-purple-700 font-medium">Lire plus →</a>
-				</div>
-			</article>
-			
-			<article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-				<div class="h-48 bg-gradient-to-r from-cyan-400 to-teal-400"></div>
-				<div class="p-6">
-					<h3 class="text-xl font-semibold text-gray-800 mb-2">Le pouvoir de la gratitude</h3>
-					<p class="text-gray-600 mb-4">Comment la pratique de la gratitude peut transformer votre perspective de vie.</p>
-					<a href="#" class="text-purple-500 hover:text-purple-700 font-medium">Lire plus →</a>
-				</div>
-			</article>
-		</div>
-	</section>
-
-		<section class="py-16 bg-white/50 rounded-2xl">
-		<div class="text-center">
-			<h2 class="text-3xl font-bold text-gray-800 mb-6">
-				Méditation guidée du jour
-			</h2>
-			<p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-				Prenez 10 minutes pour vous recentrer et vous connecter à votre lumière intérieure.
-			</p>
-			<div class="bg-gradient-to-r from-purple-100 to-blue-100 p-8 rounded-xl max-w-md mx-auto">
-				<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
-					<svg class="w-8 h-8 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
-						<path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path>
-					</svg>
-				</div>
-				<h3 class="text-xl font-semibold text-gray-800 mb-2">Respiration consciente</h3>
-				<p class="text-gray-600 mb-4">10 minutes • Débutant</p>
-				<button class="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all">
-					Commencer
-				</button>
+			<div class="text-center mb-12">
+				<h2 class="text-4xl font-display font-bold text-primary mb-4">Pratiques spirituelles</h2>
+				<p class="text-lg text-gray-600 max-w-2xl mx-auto">Découvrez des chemins vers la paix intérieure et l'éveil spirituel</p>
 			</div>
-		</div>
-	</section>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<!-- Méditation pleine conscience -->
+				<div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 bg-white">
+					<div class="relative h-64 overflow-hidden">
+						<img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80" alt="Moment de méditation en nature" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+						<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent"></div>
+						<div class="absolute top-4 left-4">
+							<div class="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+								<span class="text-primary text-sm font-semibold">🧘‍♀️ Méditation</span>
+							</div>
+						</div>
+					</div>
+					<div class="p-6">
+						<h3 class="text-xl font-display font-bold text-primary mb-3">Méditation pleine conscience</h3>
+						<p class="text-gray-600 mb-4 leading-relaxed">Apprenez à être présent dans l'instant et à cultiver la paix intérieure à travers la méditation guidée.</p>
+						<div class="flex items-center justify-between">
+							<div class="flex items-center text-sm text-gray-500">
+								<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+								</svg>
+								10-20 min
+							</div>
+							<button class="btn btn-primary btn-sm shadow-lg hover:shadow-xl transition-all duration-300">
+								Explorer
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Gratitude journalière -->
+				<div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 bg-white">
+					<div class="relative h-64 overflow-hidden">
+						<img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=600&q=80" alt="Journal de gratitude au coucher du soleil" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+						<div class="absolute inset-0 bg-gradient-to-t from-secondary/60 via-secondary/20 to-transparent"></div>
+						<div class="absolute top-4 left-4">
+							<div class="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+								<span class="text-secondary text-sm font-semibold">🙏 Gratitude</span>
+							</div>
+						</div>
+					</div>
+					<div class="p-6">
+						<h3 class="text-xl font-display font-bold text-secondary mb-3">Gratitude journalière</h3>
+						<p class="text-gray-600 mb-4 leading-relaxed">Transformez votre perspective en cultivant la reconnaissance pour les bénédictions de chaque jour.</p>
+						<div class="flex items-center justify-between">
+							<div class="flex items-center text-sm text-gray-500">
+								<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+								</svg>
+								5 min/jour
+							</div>
+							<button class="btn btn-secondary btn-sm shadow-lg hover:shadow-xl transition-all duration-300">
+								Commencer
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Respiration sacrée -->
+				<div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 bg-white">
+					<div class="relative h-64 overflow-hidden">
+						<img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80" alt="Respiration profonde en montagne" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+						<div class="absolute inset-0 bg-gradient-to-t from-accent/60 via-accent/20 to-transparent"></div>
+						<div class="absolute top-4 left-4">
+							<div class="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+								<span class="text-accent text-sm font-semibold">🌬️ Respiration</span>
+							</div>
+						</div>
+					</div>
+					<div class="p-6">
+						<h3 class="text-xl font-display font-bold text-accent mb-3">Respiration sacrée</h3>
+						<p class="text-gray-600 mb-4 leading-relaxed">Connectez-vous à votre essence profonde à travers des techniques de respiration ancestrales.</p>
+						<div class="flex items-center justify-between">
+							<div class="flex items-center text-sm text-gray-500">
+								<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+								</svg>
+								15 min
+							</div>
+							<button class="btn btn-accent btn-sm shadow-lg hover:shadow-xl transition-all duration-300">
+								Découvrir
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Section supplémentaire avec call-to-action -->
+			<div class="text-center mt-12">
+				<div class="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl p-8 max-w-3xl mx-auto border border-primary/10">
+					<h3 class="text-2xl font-display font-bold text-primary mb-4">Commencez votre pratique spirituelle</h3>
+					<p class="text-gray-600 mb-6">Chaque petite étape compte dans votre cheminement vers la paix intérieure. Choisissez la pratique qui résonne avec votre âme.</p>
+					<div class="flex flex-col sm:flex-row gap-4 justify-center">
+						<button class="btn btn-primary shadow-lg hover:shadow-xl transition-all duration-300">
+							Explorer toutes les pratiques
+						</button>
+						<button class="btn btn-outline btn-primary shadow-lg hover:shadow-xl transition-all duration-300">
+							Recevoir des rappels quotidiens
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- SECTION MÉDITATION GUIDÉE -->
+		<section class="py-16">
+			<div class="card bg-gradient-to-br from-primary/10 to-secondary/10 shadow-2xl">
+				<div class="card-body text-center">
+					<h2 class="card-title text-3xl font-display text-primary mb-4">Méditation guidée du jour</h2>
+					<p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+						Prenez 10 minutes pour vous recentrer et vous connecter à votre lumière intérieure.
+					</p>
+					
+					<div class="card bg-base-100 max-w-md mx-auto shadow-lg">
+						<div class="card-body items-center text-center">
+							<div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+								<svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+									<path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path>
+								</svg>
+							</div>
+							<h3 class="text-xl font-semibold text-primary mb-2">Respiration consciente</h3>
+							<p class="text-gray-600 mb-4">10 minutes • Pour tous niveaux</p>
+							<button class="btn btn-primary btn-wide">Commencer la méditation</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- SECTION INSPIRATION QUOTIDIENNE -->
+		<section class="py-16">
+			<div class="text-center mb-12">
+				<h2 class="text-4xl font-display font-bold text-secondary mb-4">Inspiration quotidienne</h2>
+				<p class="text-lg text-gray-600 max-w-2xl mx-auto">Des mots pour nourrir votre âme et éclairer votre chemin</p>
+			</div>
+			
+			<div class="card bg-gradient-to-r from-secondary/20 to-accent/20 shadow-xl max-w-4xl mx-auto">
+				<div class="card-body">
+					<blockquote class="text-2xl italic text-center text-gray-700 mb-6">
+						"La paix vient de l'intérieur. Ne la cherchez pas à l'extérieur."
+					</blockquote>
+					<p class="text-center text-gray-600">- Bouddha</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- SECTION SERVICES SPIRITUELS -->
+		<section class="py-16">
+			<div class="text-center mb-12">
+				<h2 class="text-4xl font-display font-bold text-primary mb-4">Accompagnements spirituels</h2>
+				<p class="text-lg text-gray-600 max-w-2xl mx-auto">Des services pour éclairer votre chemin et nourrir votre âme</p>
+			</div>
+
+			<div class="space-y-12">
+				<ServiceCard
+					title="Guidances spirituelles"
+					subtitle="Une guidance sur mesure : éclairer une problématique immédiate ou approfondir un domaine particulier."
+					description="La guidance spirituelle offre un moment d'écoute et de connexion avec tes énergies du moment afin d'apporter clarté et compréhension à ta situation. À travers mes ressentis et l'appui d'outils intuitifs, tu reçois des messages personnalisés qui t'aident à prendre du recul, à te libérer de tes blocages et à retrouver confiance en ton chemin. Ce temps de guidance est une boussole intérieure, qui t'éclaire dans tes choix et te permet d'avancer avec plus de sérénité, de force et de foi en la vie."
+					modalites="En visio (1h) ou audio par vocaux"
+					prix="Don libre"
+					livrable="Messages audio (vocaux)"
+					public="Toute personne souhaitant cheminer spirituellement"
+					preparation={["Questions préparées ou thème à aborder (sentimental, professionnel, relationnel…)"]}
+					buttonText="Réserver une guidance"
+					buttonColor="primary"
+					imageUrl="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80"
+					imageAlt="Moment de méditation spirituelle en nature"
+				/>
+
+				<ServiceCard
+					title="Communication animale"
+					subtitle="Une connexion intuitive pour éclairer les comportements, émotions et besoins profonds de ton animal."
+					description="La communication animale permet d'entrer en lien subtil avec ton compagnon afin de percevoir ses émotions, ses ressentis et ses besoins profonds. Elle peut t'apporter des clés pour mieux comprendre ses comportements, l'accompagner lors de changements de vie (déménagement, nouvel arrivant, fin de vie), ou simplement renforcer votre relation. Grâce à ce canal privilégié, tu reçois des messages clairs et bienveillants qui favorisent l'harmonie et la confiance dans votre lien."
+					modalites="À distance, échanges audio par vocaux"
+					prix="Don libre"
+					livrable="Messages audio (vocaux)"
+					public="Propriétaires d'animaux"
+					preparation={["Photo de l'animal", "Son nom et le nom de son gardien", "Nature de la demande (message ouvert ou problématique spécifique)"]}
+					buttonText="Réserver une communication"
+					buttonColor="secondary"
+					imageUrl="https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=800&q=80"
+					imageAlt="Connexion profonde avec un animal en nature"
+				/>
+
+				<ServiceCard
+					title="Contact défunt"
+					subtitle="Un espace sacré pour renouer avec l'amour et les messages des êtres disparus."
+					description="Le contact avec les défunts est une rencontre spirituelle où je transmets les messages de tes proches disparus. Dans le respect et la bienveillance, ces messages peuvent apporter réconfort, libérer ta lignée, apaiser ton cœur, favoriser la guérison intérieure, ou encore t'offrir l'occasion de leur exprimer ce que tu n'as pas pu dire. Chaque séance se déroule à leur rythme, dans un cadre où l'amour et la lumière guident l'échange. Ce moment sacré peut t'aider à traverser ton deuil, à recevoir des réponses ou simplement à ressentir la présence rassurante de ceux qui continuent de veiller sur toi."
+					modalites="En visio"
+					prix="Don libre"
+					livrable="Non"
+					public="Personnes en deuil ou en recherche de réponses transgénérationnelles"
+					preparation={["Photo du défunt", "Date de naissance et de décès", "Prénom et lien de parenté ou relation"]}
+					buttonText="Réserver un contact"
+					buttonColor="accent"
+					imageUrl="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80"
+					imageAlt="Moment de recueillement et de connexion spirituelle"
+				/>
+			</div>
+		</section>
+
+		<!-- SECTION À PROPOS -->
+		<section class="py-16">
+			<div class="text-center mb-12">
+				<h2 class="text-4xl font-display font-bold text-primary mb-4">Rencontrez Camille_Spirit</h2>
+				<p class="text-lg text-gray-600 max-w-2xl mx-auto">Médium guidée par l'amour, la nature et le lien profond aux animaux</p>
+			</div>
+
+			<div class="max-w-6xl mx-auto">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+					<!-- Image et présentation -->
+					<div class="relative">
+						<div class="relative rounded-2xl overflow-hidden shadow-2xl">
+							<img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" alt="Camille_Spirit en connexion avec la nature" class="w-full h-96 object-cover object-center" loading="lazy" />
+							<div class="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent"></div>
+							<div class="absolute bottom-6 left-6 right-6">
+								<div class="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
+									<p class="text-primary font-semibold text-center">"L'amour et la lumière guident chacun de mes pas"</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Présentation détaillée -->
+					<div class="space-y-6">
+						<div class="bg-gradient-to-r from-primary/5 to-secondary/5 p-8 rounded-2xl border border-primary/10">
+							<h3 class="text-2xl font-display font-bold text-primary mb-4">Mon chemin spirituel</h3>
+							<p class="text-gray-700 leading-relaxed mb-4">
+								J'accompagne les personnes dans leur cheminement spirituel à travers des guidances intuitives, des communications animales et des contacts avec les défunts.
+							</p>
+							<p class="text-gray-700 leading-relaxed">
+								Mon approche repose sur l'empathie, l'authenticité et le non-jugement, afin d'offrir un espace de confiance et de lumière où chacun peut s'épanouir spirituellement.
+							</p>
+						</div>
+
+						<div class="bg-white/60 backdrop-blur-sm p-6 rounded-xl shadow-lg">
+							<h4 class="text-xl font-semibold text-secondary mb-3">Ma vision</h4>
+							<p class="text-gray-600 italic">
+								"Chaque être possède en lui une lumière divine. Mon rôle est de vous aider à la retrouver et à la laisser briller."
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Valeurs fondamentales -->
+				<div class="bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 rounded-2xl p-8 border border-primary/10 shadow-xl">
+					<h3 class="text-3xl font-display font-bold text-center text-primary mb-8">Mes valeurs fondamentales</h3>
+
+					<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+						<div class="text-center group">
+							<div class="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+								<span class="text-4xl">💚</span>
+							</div>
+							<h4 class="text-xl font-semibold text-primary mb-2">Empathie</h4>
+							<p class="text-gray-600 leading-relaxed">Une écoute bienveillante et profonde pour accueillir vos émotions sans jugement</p>
+						</div>
+
+						<div class="text-center group">
+							<div class="w-20 h-20 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+								<span class="text-4xl">🌿</span>
+							</div>
+							<h4 class="text-xl font-semibold text-secondary mb-2">Authenticité</h4>
+							<p class="text-gray-600 leading-relaxed">Des messages sincères et vrais, transmis avec intégrité et transparence</p>
+						</div>
+
+						<div class="text-center group">
+							<div class="w-20 h-20 bg-gradient-to-br from-accent/20 to-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+								<span class="text-4xl">✨</span>
+							</div>
+							<h4 class="text-xl font-semibold text-accent mb-2">Non-jugement</h4>
+							<p class="text-gray-600 leading-relaxed">Un espace sacré de confiance totale où vous pouvez être pleinement vous-même</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Appel à l'action -->
+				<div class="text-center mt-12">
+					<div class="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 max-w-2xl mx-auto">
+						<h3 class="text-2xl font-display font-bold text-primary mb-4">Prêt à commencer votre voyage intérieur ?</h3>
+						<p class="text-gray-600 mb-6">Chaque chemin est unique, et je suis là pour vous accompagner avec douceur et bienveillance.</p>
+						<button class="btn btn-primary btn-lg shadow-lg hover:shadow-xl transition-all duration-300">
+							Commencer l'accompagnement
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
 	</div>
 </Layout>
