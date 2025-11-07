@@ -87,6 +87,65 @@
   - [ ] Prévisualisation de l'avatar choisi
   - [ ] Options de tri et filtrage des avis
 
+## 🔍 SEO (Optimisation pour les moteurs de recherche)
+
+- [ ] Configuration de base
+  - [ ] Configurer le fichier `robots.txt`
+  - [ ] Créer et soumettre le sitemap XML
+  - [ ] Configurer Google Search Console
+  - [ ] Configurer Bing Webmaster Tools
+  - [ ] Implémenter un fichier `manifest.json` pour PWA
+
+- [ ] Meta tags & OpenGraph
+  - [ ] Ajouter les meta descriptions sur toutes les pages (150-160 caractères)
+  - [ ] Configurer les balises OpenGraph (og:title, og:description, og:image, og:url)
+  - [ ] Ajouter les Twitter Cards (twitter:card, twitter:title, twitter:description, twitter:image)
+  - [ ] Implémenter les meta tags dynamiques via Sanity
+  - [ ] Créer des images OG par défaut et personnalisables
+
+- [ ] Structure & Données structurées (Schema.org)
+  - [ ] Implémenter le schema LocalBusiness
+  - [ ] Ajouter le schema Person (pour le professionnel)
+  - [ ] Schema Article pour les articles de blog
+  - [ ] Schema Review/AggregateRating pour les avis clients
+  - [ ] Schema BreadcrumbList pour la navigation
+  - [ ] Tester avec Google Rich Results Test
+
+- [ ] Contenu & Mots-clés
+  - [ ] Recherche de mots-clés pertinents (bien-être, développement personnel, etc.)
+  - [ ] Optimiser les balises H1, H2, H3 (hiérarchie sémantique)
+  - [ ] Ajouter des textes alt descriptifs sur toutes les images
+  - [ ] Créer du contenu long-form pour le blog (min 1000 mots)
+  - [ ] Optimiser les URLs (slugs courts, descriptifs, sans caractères spéciaux)
+
+- [ ] Performance SEO
+  - [ ] Améliorer le temps de chargement (< 3s)
+  - [ ] Optimiser le Largest Contentful Paint (LCP)
+  - [ ] Optimiser le First Input Delay (FID)
+  - [ ] Optimiser le Cumulative Layout Shift (CLS)
+  - [ ] Implémenter le lazy loading des images
+  - [ ] Minifier CSS/JS
+  - [ ] Optimiser les Core Web Vitals
+
+- [ ] SEO Local
+  - [ ] Créer/optimiser la fiche Google My Business
+  - [ ] Ajouter l'adresse et coordonnées en format NAP (Name, Address, Phone)
+  - [ ] Implémenter une carte Google Maps (si pertinent)
+  - [ ] Cibler les mots-clés locaux
+
+- [ ] Liens & Autorité
+  - [ ] Créer un maillage interne cohérent (liens entre articles de blog)
+  - [ ] Ajouter des liens externes vers des sources de qualité
+  - [ ] Planifier une stratégie de backlinks
+  - [ ] Créer des pages ressources partageables
+
+- [ ] Suivi & Analytics
+  - [ ] Configurer Google Analytics 4 (GA4)
+  - [ ] Configurer les objectifs et conversions
+  - [ ] Suivre le taux de rebond et le temps sur page
+  - [ ] Analyser les pages de sortie
+  - [ ] Monitorer le classement des mots-clés
+
 ## 🚀 Optimisations & Performance
 
 - [ ] Optimiser les images (formats modernes, lazy loading)
