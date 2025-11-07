@@ -30,6 +30,7 @@
 
 <script>
 	const THEME_KEY = 'spirit-path-theme';
+	const DARK_THEMES = ['dark', 'night', 'business', 'coffee', 'forest'];
 
 	function getTheme(): string {
 		if (typeof localStorage !== 'undefined' && localStorage.getItem(THEME_KEY)) {
@@ -53,7 +54,7 @@
 
 		if (!sunIcon || !moonIcon) return;
 
-		const isDark = theme === 'dark' || theme === 'night' || theme === 'business' || theme === 'coffee' || theme === 'forest';
+		const isDark = DARK_THEMES.includes(theme);
 
 		if (isDark) {
 			sunIcon.classList.add('hidden');
@@ -66,7 +67,7 @@
 
 	function toggleTheme() {
 		const currentTheme = getTheme();
-		const newTheme = (currentTheme === 'light' || !['dark', 'night', 'business', 'coffee', 'forest'].includes(currentTheme)) ? 'dark' : 'light';
+		const newTheme = (currentTheme === 'light' || !DARK_THEMES.includes(currentTheme)) ? 'dark' : 'light';
 		setTheme(newTheme);
 
 		// Dispatch event for other components
