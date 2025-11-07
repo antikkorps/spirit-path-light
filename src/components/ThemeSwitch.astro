@@ -11,7 +11,7 @@
 	<!-- Sun icon -->
 	<svg
 		id="sun-icon"
-		class="w-6 h-6 swap-on fill-current"
+		class="w-6 h-6 fill-current"
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
 	>
@@ -20,7 +20,7 @@
 	<!-- Moon icon -->
 	<svg
 		id="moon-icon"
-		class="w-6 h-6 swap-off fill-current hidden"
+		class="w-6 h-6 fill-current hidden"
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
 	>
@@ -73,10 +73,10 @@
 		window.dispatchEvent(new CustomEvent('theme-changed', { detail: { theme: newTheme } }));
 	}
 
-	// Initialize theme on page load
-	if (typeof document !== 'undefined') {
+	// Initialize on DOMContentLoaded
+	document.addEventListener('DOMContentLoaded', () => {
 		const theme = getTheme();
-		setTheme(theme);
+		updateToggleUI(theme);
 
 		const toggleButton = document.getElementById('theme-toggle');
 		if (toggleButton) {
@@ -87,5 +87,19 @@
 		window.addEventListener('theme-changed', ((e: CustomEvent) => {
 			updateToggleUI(e.detail.theme);
 		}) as EventListener);
-	}
+	});
+
+	// Also run on Astro page load for view transitions
+	document.addEventListener('astro:page-load', () => {
+		const theme = getTheme();
+		updateToggleUI(theme);
+
+		const toggleButton = document.getElementById('theme-toggle');
+		if (toggleButton) {
+			// Remove old listener to avoid duplicates
+			const newButton = toggleButton.cloneNode(true);
+			toggleButton.parentNode?.replaceChild(newButton, toggleButton);
+			newButton.addEventListener('click', toggleTheme);
+		}
+	});
 </script>
