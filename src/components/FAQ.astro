@@ -1,0 +1,94 @@
+---
+export interface Props {
+	faqs: any[];
+	title?: string;
+	description?: string;
+	category?: string;
+}
+
+const { faqs, title = 'Questions fréquentes', description, category } = Astro.props;
+
+// Filter FAQs by category if specified
+const filteredFAQs = category
+	? faqs.filter((faq) => faq.category === category)
+	: faqs;
+---
+
+{filteredFAQs && filteredFAQs.length > 0 && (
+	<div class="faq-section">
+		<div class="text-center mb-12">
+			<h2 class="text-3xl md:text-4xl font-display font-bold text-gray-800 dark:text-gray-100 mb-4">
+				{title}
+			</h2>
+			{description && (
+				<p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+					{description}
+				</p>
+			)}
+		</div>
+
+		<div class="max-w-4xl mx-auto space-y-4">
+			{filteredFAQs.map((faq: any, index: number) => (
+				<details
+					class="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700 overflow-hidden"
+				>
+					<summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-100 text-lg hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
+						<div class="flex items-center gap-3 flex-1">
+							{faq.icon && (
+								<span class="text-2xl flex-shrink-0">{faq.icon}</span>
+							)}
+							<span class="flex-1">{faq.question}</span>
+						</div>
+						<svg
+							class="w-6 h-6 text-primary group-open:rotate-180 transition-transform duration-300 flex-shrink-0 ml-4"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+						</svg>
+					</summary>
+					<div class="px-6 pb-6 pt-2">
+						<div class="prose prose-gray dark:prose-invert max-w-none">
+							{faq.answer && (
+								<div class="text-gray-600 dark:text-gray-400 leading-relaxed">
+									{/* Simple text rendering - enhance with PortableText for rich content */}
+									{typeof faq.answer === 'string' ? (
+										<p>{faq.answer}</p>
+									) : (
+										faq.answer.map((block: any) =>
+											block._type === 'block' ? (
+												<p>{block.children.map((child: any) => child.text).join('')}</p>
+											) : null
+										)
+									)}
+								</div>
+							)}
+						</div>
+					</div>
+				</details>
+			))}
+		</div>
+
+		<!-- CTA at the end -->
+		<div class="mt-12 text-center">
+			<div class="bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-primary/20 dark:to-secondary/20 rounded-2xl p-8 max-w-2xl mx-auto border border-primary/20 dark:border-primary/30">
+				<h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">
+					Vous ne trouvez pas votre réponse ?
+				</h3>
+				<p class="text-gray-600 dark:text-gray-400 mb-6">
+					N'hésitez pas à nous contacter, nous serons ravis de vous aider
+				</p>
+				<a
+					href="/contact"
+					class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+				>
+					Nous contacter
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</div>
+)}
