@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getBlogPost, getBlogPosts, urlFor } from '../../lib/sanity';
-import { PortableText } from '@portabletext/astro';
+import { PortableText } from 'astro-portabletext';
 
 export async function getStaticPaths() {
 	const posts = await getBlogPosts();
