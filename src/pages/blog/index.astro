@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import BlogCard from '../../components/BlogCard.astro';
+import Newsletter from '../../components/Newsletter.astro';
 import { getBlogPosts } from '../../lib/sanity';
 
 const posts = await getBlogPosts();
@@ -113,31 +114,8 @@ const posts = await getBlogPosts();
 		)}
 
 		<!-- Newsletter section -->
-		<div class="mt-20">
-			<div class="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-12 text-center max-w-3xl mx-auto border border-primary/20">
-				<div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-6">
-					<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-					</svg>
-				</div>
-				<h3 class="text-3xl font-display font-bold text-gray-800 mb-4">
-					Restez inspiré·e
-				</h3>
-				<p class="text-gray-600 mb-8">
-					Recevez les nouveaux articles et conseils spirituels directement dans votre boîte mail
-				</p>
-				<form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-					<input
-						type="email"
-						placeholder="Votre adresse email"
-						class="flex-1 px-6 py-3 rounded-full border-2 border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-						required
-					/>
-					<button type="submit" class="btn btn-primary rounded-full px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300">
-						S'abonner
-					</button>
-				</form>
-			</div>
+		<div class="mt-20 max-w-3xl mx-auto">
+			<Newsletter variant="default" />
 		</div>
 	</div>
 </Layout>
