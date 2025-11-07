@@ -86,18 +86,18 @@ const ogImageURL = new URL(ogImage, Astro.site);
 	</script>
 </head>
 <body class="min-h-screen bg-base-200">
-	<header class="bg-base-100 border-b border-base-300 sticky top-0 z-50 shadow-md">
+	<header class="sticky top-0 z-50 bg-base-100 shadow-md border-b border-base-300">
 		<nav class="container mx-auto px-4 py-4">
 			<div class="flex items-center justify-between">
 				<div class="flex items-center space-x-2">
-					<div class="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+					<div class="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-secondary"></div>
 					<span class="text-xl font-bold text-base-content">Spirit Path Light</span>
 				</div>
 				<div class="flex items-center gap-3">
 					<div class="md:hidden">
 						<ThemeSwitch />
 					</div>
-					<button id="mobile-menu-button" class="md:hidden btn btn-ghost btn-circle" aria-label="Toggle mobile menu">
+					<button id="mobile-menu-button" class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle mobile menu">
 						<svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
 						</svg>
@@ -107,22 +107,22 @@ const ogImageURL = new URL(ogImage, Astro.site);
 					</button>
 				</div>
 				<div class="hidden md:flex items-center space-x-6">
-					<a href="/" class="link link-hover text-base-content">Accueil</a>
-					<a href="/blog" class="link link-hover text-base-content">Blog</a>
-					<a href="/#services" class="link link-hover text-base-content">Services</a>
-					<a href="/faq" class="link link-hover text-base-content">FAQ</a>
-					<a href="/contact" class="link link-hover text-base-content">Contact</a>
+					<a href="/" class="text-base-content hover:text-primary transition-colors">Accueil</a>
+					<a href="/blog" class="text-base-content hover:text-primary transition-colors">Blog</a>
+					<a href="/#services" class="text-base-content hover:text-primary transition-colors">Services</a>
+					<a href="/faq" class="text-base-content hover:text-primary transition-colors">FAQ</a>
+					<a href="/contact" class="text-base-content hover:text-primary transition-colors">Contact</a>
 					<ThemeSwitch />
 				</div>
 			</div>
 			<!-- Mobile Menu -->
-			<div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-base-100 border-b border-base-300 shadow-lg">
+			<div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-base-100 shadow-lg border-b border-base-300">
 				<div class="flex flex-col py-4">
-					<a href="/" class="px-4 py-3 hover:bg-base-200 text-base-content">Accueil</a>
-					<a href="/blog" class="px-4 py-3 hover:bg-base-200 text-base-content">Blog</a>
-					<a href="/#services" class="px-4 py-3 hover:bg-base-200 text-base-content">Services</a>
-					<a href="/faq" class="px-4 py-3 hover:bg-base-200 text-base-content">FAQ</a>
-					<a href="/contact" class="px-4 py-3 hover:bg-base-200 text-base-content">Contact</a>
+					<a href="/" class="px-4 py-3 text-base-content hover:bg-base-200">Accueil</a>
+					<a href="/blog" class="px-4 py-3 text-base-content hover:bg-base-200">Blog</a>
+					<a href="/#services" class="px-4 py-3 text-base-content hover:bg-base-200">Services</a>
+					<a href="/faq" class="px-4 py-3 text-base-content hover:bg-base-200">FAQ</a>
+					<a href="/contact" class="px-4 py-3 text-base-content hover:bg-base-200">Contact</a>
 				</div>
 			</div>
 		</nav>
@@ -132,10 +132,10 @@ const ogImageURL = new URL(ogImage, Astro.site);
 			<slot />
 		</main>
 
-	<footer class="bg-neutral text-neutral-content py-8 mt-16">
+	<footer class="py-8 mt-16 bg-base-100 text-base-content/70 border-t border-base-300">
 		<div class="container mx-auto px-4">
 			<div class="text-center">
-				<p class="opacity-70">&copy; 2024 Spirit Path Light. Tous droits réservés.</p>
+				<p>&copy; 2024 Spirit Path Light. Tous droits réservés.</p>
 			</div>
 		</div>
 	</footer>
