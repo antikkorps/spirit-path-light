@@ -4,6 +4,7 @@ import category from './category'
 import testimonial from './testimonial'
 import homepageSettings from './homepageSettings'
 import cookieConsent from './cookieConsent'
+import faq from './faq'
 
 export const schemaTypes = [
   author,
@@ -12,4 +13,5 @@ export const schemaTypes = [
   testimonial,
   homepageSettings,
   cookieConsent,
+  faq,
 ]
