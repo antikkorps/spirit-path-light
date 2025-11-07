@@ -23,6 +23,6 @@
   },
   "devDependencies": {
     "concurrently": "^9.2.1",
-    "daisyui": "5.1.18"
+    "daisyui": "^5.4.7"
   }
 }
