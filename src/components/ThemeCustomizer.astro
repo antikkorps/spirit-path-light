@@ -213,14 +213,36 @@
 	class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
 ></div>
 
-<style>
+<style is:global>
 	.theme-option {
-		@apply w-full p-3 rounded-lg border-2 border-base-300 hover:border-primary transition-all text-left;
-		@apply hover:scale-[1.02] active:scale-[0.98];
+		width: 100%;
+		padding: 0.75rem;
+		border-radius: 0.5rem;
+		border: 2px solid;
+		text-align: left;
+		transition: all 0.3s;
+	}
+
+	[data-theme="light"] .theme-option {
+		border-color: oklch(var(--bc) / 0.2);
+	}
+
+	[data-theme="dark"] .theme-option {
+		border-color: oklch(var(--bc) / 0.2);
+	}
+
+	.theme-option:hover {
+		border-color: oklch(var(--p));
+		transform: scale(1.02);
+	}
+
+	.theme-option:active {
+		transform: scale(0.98);
 	}
 
 	.theme-option.active {
-		@apply border-primary bg-primary/10;
+		border-color: oklch(var(--p));
+		background-color: oklch(var(--p) / 0.1);
 	}
 </style>
 
