@@ -11,11 +11,11 @@
     // Détection du thème système
     if (typeof window !== "undefined" && window.matchMedia) {
       return window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "paletteNaturelleDark"
-        : "paletteNaturelle"
+        ? "dark"
+        : "light"
     }
 
-    return "paletteNaturelle"
+    return "light"
   }
 
   // Appliquer le thème immédiatement
