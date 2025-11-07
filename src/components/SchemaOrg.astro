@@ -1,0 +1,118 @@
+---
+export interface Props {
+	type: 'LocalBusiness' | 'Article' | 'Person' | 'Review';
+	data: any;
+}
+
+const { type, data } = Astro.props;
+
+let schema = {};
+
+if (type === 'LocalBusiness') {
+	schema = {
+		'@context': 'https://schema.org',
+		'@type': 'LocalBusiness',
+		'@id': data.url || 'https://spiritpathlight.com',
+		name: data.name || 'Spirit Path Light',
+		description: data.description || 'Guidances spirituelles, communication animale et contact avec les défunts',
+		url: data.url || 'https://spiritpathlight.com',
+		telephone: data.telephone || '',
+		email: data.email || 'contact@spiritpathlight.com',
+		image: data.image || 'https://spiritpathlight.com/assets/images/Accueil.webp',
+		priceRange: data.priceRange || 'Don libre',
+		address: data.address ? {
+			'@type': 'PostalAddress',
+			addressCountry: data.address.country || 'FR',
+			addressRegion: data.address.region || '',
+		} : undefined,
+		geo: data.geo ? {
+			'@type': 'GeoCoordinates',
+			latitude: data.geo.latitude,
+			longitude: data.geo.longitude,
+		} : undefined,
+		openingHoursSpecification: data.hours || [],
+		sameAs: data.socialMedia || [
+			'https://instagram.com/camille_spirit',
+		],
+		founder: {
+			'@type': 'Person',
+			name: data.founder?.name || 'Camille Spirit',
+			jobTitle: data.founder?.jobTitle || 'Médium',
+			description: data.founder?.description || 'Médium guidée par l\'amour, la nature et le lien profond aux animaux',
+		},
+		areaServed: {
+			'@type': 'Country',
+			name: 'France',
+		},
+		availableLanguage: ['fr'],
+	};
+}
+
+if (type === 'Article') {
+	schema = {
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: data.title,
+		description: data.description,
+		image: data.image,
+		datePublished: data.datePublished,
+		dateModified: data.dateModified || data.datePublished,
+		author: {
+			'@type': 'Person',
+			name: data.author?.name || 'Camille Spirit',
+			url: data.author?.url || 'https://spiritpathlight.com',
+		},
+		publisher: {
+			'@type': 'Organization',
+			name: 'Spirit Path Light',
+			logo: {
+				'@type': 'ImageObject',
+				url: 'https://spiritpathlight.com/assets/logo.webp',
+			},
+		},
+		mainEntityOfPage: {
+			'@type': 'WebPage',
+			'@id': data.url,
+		},
+	};
+}
+
+if (type === 'Person') {
+	schema = {
+		'@context': 'https://schema.org',
+		'@type': 'Person',
+		name: data.name || 'Camille Spirit',
+		jobTitle: data.jobTitle || 'Médium',
+		description: data.description,
+		image: data.image,
+		url: data.url || 'https://spiritpathlight.com',
+		sameAs: data.socialMedia || [
+			'https://instagram.com/camille_spirit',
+		],
+	};
+}
+
+if (type === 'Review') {
+	schema = {
+		'@context': 'https://schema.org',
+		'@type': 'Review',
+		itemReviewed: {
+			'@type': 'LocalBusiness',
+			name: 'Spirit Path Light',
+		},
+		author: {
+			'@type': 'Person',
+			name: data.author,
+		},
+		reviewRating: {
+			'@type': 'Rating',
+			ratingValue: data.rating,
+			bestRating: 5,
+		},
+		reviewBody: data.text,
+		datePublished: data.date,
+	};
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

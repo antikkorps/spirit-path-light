@@ -1,0 +1,143 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getBlogPosts } from '../../lib/sanity';
+
+const posts = await getBlogPosts();
+---
+
+<Layout title="Blog - Spirit Path Light">
+	<!-- Hero du Blog -->
+	<section class="relative bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 py-20">
+		<div class="container mx-auto px-4">
+			<div class="max-w-3xl mx-auto text-center">
+				<h1 class="text-5xl md:text-6xl font-display font-bold text-gray-800 mb-6">
+					Blog spirituel
+				</h1>
+				<p class="text-xl text-gray-600 leading-relaxed mb-8">
+					Explorez des articles sur le développement personnel, la spiritualité et le bien-être intérieur
+				</p>
+
+				<!-- Search bar -->
+				<div class="relative max-w-xl mx-auto">
+					<input
+						type="text"
+						placeholder="Rechercher un article..."
+						class="w-full px-6 py-4 pr-12 rounded-full border-2 border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+					/>
+					<button class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary/90 transition-colors duration-300">
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="container mx-auto px-4 py-16">
+		<!-- Filter/Categories section (future) -->
+		<div class="mb-12">
+			<div class="flex flex-wrap items-center gap-4 justify-center">
+				<button class="px-4 py-2 rounded-full bg-primary text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300">
+					Tous les articles
+				</button>
+				<button class="px-4 py-2 rounded-full bg-white text-gray-600 font-medium border border-gray-200 hover:border-primary hover:text-primary transition-all duration-300">
+					Méditation
+				</button>
+				<button class="px-4 py-2 rounded-full bg-white text-gray-600 font-medium border border-gray-200 hover:border-secondary hover:text-secondary transition-all duration-300">
+					Développement personnel
+				</button>
+				<button class="px-4 py-2 rounded-full bg-white text-gray-600 font-medium border border-gray-200 hover:border-accent hover:text-accent transition-all duration-300">
+					Spiritualité
+				</button>
+			</div>
+		</div>
+
+		<!-- Articles grid -->
+		{posts && posts.length > 0 ? (
+			<>
+				<div class="mb-8">
+					<p class="text-gray-600 text-center">
+						<span class="font-semibold text-primary">{posts.length}</span> {posts.length === 1 ? 'article publié' : 'articles publiés'}
+					</p>
+				</div>
+
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+					{posts.map((post: any) => (
+						<BlogCard
+							title={post.title}
+							slug={post.slug.current}
+							excerpt={post.excerpt}
+							mainImage={post.mainImage}
+							publishedAt={post.publishedAt}
+							author={post.author}
+							categories={post.categories}
+							tags={post.tags}
+						/>
+					))}
+				</div>
+
+				<!-- Pagination (future) -->
+				<div class="mt-16 flex justify-center gap-2">
+					<button class="px-4 py-2 rounded-lg bg-gray-100 text-gray-400 cursor-not-allowed">
+						Précédent
+					</button>
+					<button class="px-4 py-2 rounded-lg bg-primary text-white font-medium">
+						1
+					</button>
+					<button class="px-4 py-2 rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-primary hover:text-primary transition-all duration-300">
+						2
+					</button>
+					<button class="px-4 py-2 rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-primary hover:text-primary transition-all duration-300">
+						3
+					</button>
+					<button class="px-4 py-2 rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-primary hover:text-primary transition-all duration-300">
+						Suivant
+					</button>
+				</div>
+			</>
+		) : (
+			<!-- Empty state -->
+			<div class="text-center py-20">
+				<div class="w-24 h-24 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+					<svg class="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+					</svg>
+				</div>
+				<h2 class="text-3xl font-bold text-gray-800 mb-4">Aucun article pour le moment</h2>
+				<p class="text-gray-600 mb-8">
+					Les premiers articles arrivent bientôt. Revenez régulièrement pour découvrir du contenu inspirant !
+				</p>
+			</div>
+		)}
+
+		<!-- Newsletter section -->
+		<div class="mt-20">
+			<div class="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-12 text-center max-w-3xl mx-auto border border-primary/20">
+				<div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-6">
+					<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+					</svg>
+				</div>
+				<h3 class="text-3xl font-display font-bold text-gray-800 mb-4">
+					Restez inspiré·e
+				</h3>
+				<p class="text-gray-600 mb-8">
+					Recevez les nouveaux articles et conseils spirituels directement dans votre boîte mail
+				</p>
+				<form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+					<input
+						type="email"
+						placeholder="Votre adresse email"
+						class="flex-1 px-6 py-3 rounded-full border-2 border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+						required
+					/>
+					<button type="submit" class="btn btn-primary rounded-full px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300">
+						S'abonner
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</Layout>

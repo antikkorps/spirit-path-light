@@ -1,7 +1,33 @@
 ---
 import ServiceCard from '../components/ServiceCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import SchemaOrg from '../components/SchemaOrg.astro';
 import Layout from '../layouts/Layout.astro';
+import { getTestimonials } from '../lib/sanity';
+
+// Fetch testimonials from Sanity
+const testimonials = await getTestimonials();
+
+// Schema.org data for LocalBusiness
+const businessData = {
+	name: 'Spirit Path Light',
+	description: 'Guidances spirituelles, communication animale et contact avec les défunts. Accompagnement bienveillant pour votre cheminement intérieur.',
+	url: 'https://spiritpathlight.com',
+	email: 'contact@spiritpathlight.com',
+	image: 'https://spiritpathlight.com/assets/images/Accueil.webp',
+	priceRange: 'Don libre',
+	socialMedia: [
+		'https://instagram.com/camille_spirit',
+	],
+	founder: {
+		name: 'Camille Spirit',
+		jobTitle: 'Médium',
+		description: 'Médium guidée par l\'amour, la nature et le lien profond aux animaux',
+	},
+};
 ---
+
+<SchemaOrg type="LocalBusiness" data={businessData} />
 
 <Layout title="Spirit Path Light - Accueil">
 	<!-- HERO SECTION IMMERSIVE & SPIRITUELLE -->
@@ -21,7 +47,15 @@ import Layout from '../layouts/Layout.astro';
 			<blockquote class="italic text-2xl md:text-3xl text-white/90 mb-10 bg-white/10 rounded-2xl px-8 py-6 shadow-2xl backdrop-blur-md animate-fade-in">
 				"La lumière que tu cherches est déjà en toi."
 			</blockquote>
-			<a href="#decouvrir" class="btn btn-primary btn-lg shadow-xl animate-pulse">Commencer le voyage intérieur</a>
+			<a href="#decouvrir" class="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-white/20 backdrop-blur-md rounded-full border-2 border-white/40 shadow-2xl hover:bg-white/30 hover:border-white/60 hover:scale-105 transition-all duration-300 overflow-hidden">
+				<span class="relative z-10 flex items-center gap-2">
+					Commencer le voyage intérieur
+					<svg class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+					</svg>
+				</span>
+				<div class="absolute inset-0 bg-gradient-to-r from-primary/20 via-secondary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+			</a>
 		</div>
 		
 		<!-- Effet de particules spirituelles -->
@@ -244,6 +278,46 @@ import Layout from '../layouts/Layout.astro';
 				/>
 			</div>
 		</section>
+
+		<!-- SECTION AVIS CLIENTS -->
+		{testimonials && testimonials.length > 0 && (
+			<section class="py-16">
+				<div class="text-center mb-12">
+					<h2 class="text-4xl font-display font-bold text-primary mb-4">Témoignages</h2>
+					<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+						Les mots de ceux qui ont cheminé avec moi
+					</p>
+				</div>
+
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+					{testimonials.map((testimonial: any) => (
+						<TestimonialCard
+							name={testimonial.name}
+							rating={testimonial.rating}
+							testimonial={testimonial.testimonial}
+							service={testimonial.service}
+							avatarStyle={testimonial.avatarStyle}
+							avatarSeed={testimonial.avatarSeed || testimonial.name}
+							date={testimonial.date}
+							isFeatured={testimonial.isFeatured}
+						/>
+					))}
+				</div>
+
+				<!-- CTA après les témoignages -->
+				<div class="text-center mt-12">
+					<div class="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl p-8 max-w-3xl mx-auto border border-primary/10">
+						<h3 class="text-2xl font-display font-bold text-primary mb-4">Vous aussi, vivez votre transformation</h3>
+						<p class="text-gray-600 mb-6">
+							Rejoignez les personnes qui ont trouvé clarté, paix et guidance sur leur chemin spirituel.
+						</p>
+						<button class="btn btn-primary shadow-lg hover:shadow-xl transition-all duration-300">
+							Réserver une séance
+						</button>
+					</div>
+				</div>
+			</section>
+		)}
 
 		<!-- SECTION À PROPOS -->
 		<section class="py-16">

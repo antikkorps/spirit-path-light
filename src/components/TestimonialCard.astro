@@ -1,0 +1,125 @@
+---
+export interface Props {
+	name: string;
+	rating: number;
+	testimonial: string;
+	service: string;
+	avatarStyle: string;
+	avatarSeed: string;
+	date: string;
+	isFeatured?: boolean;
+}
+
+const { name, rating, testimonial, service, avatarStyle, avatarSeed, date, isFeatured } = Astro.props;
+
+// Generate DiceBear avatar URL
+const seed = avatarSeed || name;
+const avatarUrl = `https://api.dicebear.com/7.x/${avatarStyle}/svg?seed=${encodeURIComponent(seed)}`;
+
+// Format date
+const formattedDate = new Date(date).toLocaleDateString('fr-FR', {
+	year: 'numeric',
+	month: 'long'
+});
+
+// Service labels
+const serviceLabels: Record<string, string> = {
+	guidance: 'Guidance spirituelle',
+	animal: 'Communication animale',
+	defunt: 'Contact défunt',
+	other: 'Autre'
+};
+
+const serviceLabel = serviceLabels[service] || service;
+
+// Generate stars
+const fullStars = Math.floor(rating);
+const hasHalfStar = rating % 1 !== 0;
+---
+
+<div class={`group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white to-gray-50 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 ${isFeatured ? 'ring-2 ring-primary/30' : ''}`}>
+	<!-- Featured badge -->
+	{isFeatured && (
+		<div class="absolute top-4 right-4 z-10">
+			<div class="bg-gradient-to-r from-primary to-secondary text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg">
+				⭐ Coup de cœur
+			</div>
+		</div>
+	)}
+
+	<div class="p-6">
+		<!-- Header with avatar and info -->
+		<div class="flex items-start gap-4 mb-4">
+			<!-- Avatar -->
+			<div class="relative flex-shrink-0">
+				<div class="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10 p-1 shadow-md ring-2 ring-white">
+					<img
+						src={avatarUrl}
+						alt={`Avatar de ${name}`}
+						class="w-full h-full rounded-full bg-white"
+					/>
+				</div>
+				{/* Verified badge */}
+				<div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center shadow-md">
+					<svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+						<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+					</svg>
+				</div>
+			</div>
+
+			<!-- Name, rating and date -->
+			<div class="flex-1 min-w-0">
+				<h3 class="text-lg font-bold text-gray-800 mb-1">{name}</h3>
+
+				<!-- Stars -->
+				<div class="flex items-center gap-1 mb-2">
+					{Array.from({ length: 5 }).map((_, i) => (
+						<svg
+							class={`w-5 h-5 ${i < fullStars ? 'text-yellow-400' : i === fullStars && hasHalfStar ? 'text-yellow-400' : 'text-gray-300'}`}
+							fill="currentColor"
+							viewBox="0 0 20 20"
+						>
+							<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+						</svg>
+					))}
+					<span class="text-sm text-gray-600 ml-1">({rating})</span>
+				</div>
+
+				<!-- Service tag -->
+				<div class="inline-flex items-center gap-1 bg-primary/10 text-primary text-xs font-medium px-2 py-1 rounded-full">
+					<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+					</svg>
+					{serviceLabel}
+				</div>
+			</div>
+		</div>
+
+		<!-- Testimonial text -->
+		<div class="relative">
+			<div class="absolute -left-2 -top-2 text-6xl text-primary/10 font-serif leading-none">"</div>
+			<p class="text-gray-700 leading-relaxed pl-6 pr-2 italic relative z-10">
+				{testimonial}
+			</p>
+			<div class="absolute -right-2 -bottom-2 text-6xl text-primary/10 font-serif leading-none">"</div>
+		</div>
+
+		<!-- Footer with date -->
+		<div class="mt-4 pt-4 border-t border-gray-100">
+			<div class="flex items-center justify-between text-sm text-gray-500">
+				<span class="flex items-center gap-1">
+					<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+					</svg>
+					{formattedDate}
+				</span>
+				<span class="text-green-600 font-medium flex items-center gap-1">
+					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+						<path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+					</svg>
+					Vérifié
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
