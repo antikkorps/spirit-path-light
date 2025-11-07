@@ -76,7 +76,7 @@
 	}
 
 	// Listen for theme changes from ThemeCustomizer
-	window.addEventListener('theme-changed', (e: CustomEvent) => {
+	window.addEventListener('theme-changed', (e: CustomEvent<{ theme: string }>) => {
 		updateToggleUI(e.detail.theme);
 	});
 </script>
