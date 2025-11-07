@@ -1,30 +1,5 @@
 @import "tailwindcss";
 
-@plugin "daisyui" {
-  themes: light --default, dark --prefersdark, cupcake, emerald, forest, lofi, pastel, fantasy, autumn, business, night, coffee, winter;
-}
-
-/* Custom light theme */
-@plugin "daisyui/theme" {
-  name: "light";
-  default: true;
-  prefersdark: false;
-  color-scheme: light;
-  --color-primary: oklch(47% 0.08 145);
-  --color-secondary: oklch(55% 0.04 55);
-  --color-accent: oklch(70% 0.08 15);
-}
-
-/* Custom dark theme */
-@plugin "daisyui/theme" {
-  name: "dark";
-  prefersdark: true;
-  color-scheme: dark;
-  --color-primary: oklch(55% 0.09 145);
-  --color-secondary: oklch(65% 0.05 55);
-  --color-accent: oklch(75% 0.08 15);
-}
-
 @layer base {
   body {
     @apply font-sans;
