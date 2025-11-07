@@ -1,0 +1,12 @@
+# robots.txt for Spirit Path Light
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_astro/
+
+# Sitemap
+Sitemap: https://spiritpathlight.com/sitemap.xml
