@@ -1,6 +1,6 @@
 // Script d'initialisation immédiate du thème pour éviter le flash
 ;(function () {
-  const THEME_KEY = "spirit-path-theme"
+  const THEME_KEY = "theme"
 
   function getTheme() {
     if (typeof localStorage !== "undefined") {
