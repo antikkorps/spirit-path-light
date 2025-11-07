@@ -88,18 +88,4 @@
 			updateToggleUI(e.detail.theme);
 		}) as EventListener);
 	});
-
-	// Also run on Astro page load for view transitions
-	document.addEventListener('astro:page-load', () => {
-		const theme = getTheme();
-		updateToggleUI(theme);
-
-		const toggleButton = document.getElementById('theme-toggle');
-		if (toggleButton) {
-			// Remove old listener to avoid duplicates
-			const newButton = toggleButton.cloneNode(true);
-			toggleButton.parentNode?.replaceChild(newButton, toggleButton);
-			newButton.addEventListener('click', toggleTheme);
-		}
-	});
 </script>
