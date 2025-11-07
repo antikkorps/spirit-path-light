@@ -1,14 +1,14 @@
 ---
-// Theme customizer component for dark mode colors
+// Theme customizer with DaisyUI themes
 ---
 
 <button
 	id="theme-customizer-btn"
-	class="fixed bottom-20 right-4 sm:right-6 z-40 w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-primary to-secondary rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
+	class="fixed bottom-20 right-4 sm:right-6 z-40 btn btn-circle btn-lg bg-gradient-to-br from-primary to-secondary border-none shadow-lg hover:shadow-xl"
 	aria-label="Personnaliser le thème"
-	title="Personnaliser les couleurs"
+	title="Choisir un thème"
 >
-	<svg class="w-6 h-6 sm:w-7 sm:h-7 text-white group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	<svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
 	</svg>
 </button>
@@ -16,150 +16,194 @@
 <!-- Customizer Panel -->
 <div
 	id="theme-customizer-panel"
-	class="fixed inset-y-0 right-0 z-50 w-full sm:w-96 bg-white dark:bg-gray-900 shadow-2xl transform translate-x-full transition-transform duration-300 overflow-y-auto"
+	class="fixed inset-y-0 right-0 z-50 w-full sm:w-96 bg-base-100 shadow-2xl transform translate-x-full transition-transform duration-300 overflow-y-auto"
 >
 	<div class="p-6">
 		<!-- Header -->
 		<div class="flex items-center justify-between mb-6">
-			<h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Personnaliser</h3>
+			<h3 class="text-2xl font-bold">Thèmes</h3>
 			<button
 				id="theme-customizer-close"
-				class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+				class="btn btn-ghost btn-circle btn-sm"
 				aria-label="Fermer"
 			>
-				<svg class="w-6 h-6 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
 				</svg>
 			</button>
 		</div>
 
-		<!-- Theme Toggle -->
-		<div class="mb-8 p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
-			<label class="flex items-center justify-between cursor-pointer">
-				<span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Mode sombre</span>
-				<div class="relative">
-					<input type="checkbox" id="theme-toggle-customizer" class="sr-only peer" />
-					<div class="w-14 h-7 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary"></div>
-				</div>
-			</label>
-		</div>
+		<!-- Theme Categories -->
+		<div class="space-y-6">
+			<!-- Light Themes -->
+			<div>
+				<h4 class="text-sm font-semibold opacity-70 mb-3">☀️ Thèmes Clairs</h4>
+				<div class="grid grid-cols-1 gap-2">
+					<button class="theme-option" data-theme="light">
+						<div class="flex items-center gap-3">
+							<div class="flex gap-1">
+								<div class="w-4 h-8 rounded bg-[#4a6b4e]"></div>
+								<div class="w-4 h-8 rounded bg-[#8a7f66]"></div>
+								<div class="w-4 h-8 rounded bg-[#d4a59a]"></div>
+							</div>
+							<span class="font-medium">Spirit Path (clair)</span>
+						</div>
+					</button>
 
-		<!-- Color Presets -->
-		<div class="mb-8">
-			<h4 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-4">Thèmes prédéfinis</h4>
-			<div class="grid grid-cols-2 gap-3">
-				<button
-					class="theme-preset p-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-primary transition-colors text-left"
-					data-preset="default"
-				>
-					<div class="flex gap-2 mb-2">
-						<div class="w-6 h-6 rounded-full bg-[#4a6b4e]"></div>
-						<div class="w-6 h-6 rounded-full bg-[#8a7f66]"></div>
-						<div class="w-6 h-6 rounded-full bg-[#d4a59a]"></div>
-					</div>
-					<span class="text-sm font-medium text-gray-800 dark:text-gray-200">Nature</span>
-				</button>
-				<button
-					class="theme-preset p-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-primary transition-colors text-left"
-					data-preset="ocean"
-				>
-					<div class="flex gap-2 mb-2">
-						<div class="w-6 h-6 rounded-full bg-[#2563eb]"></div>
-						<div class="w-6 h-6 rounded-full bg-[#0891b2]"></div>
-						<div class="w-6 h-6 rounded-full bg-[#7dd3fc]"></div>
-					</div>
-					<span class="text-sm font-medium text-gray-800 dark:text-gray-200">Océan</span>
-				</button>
-				<button
-					class="theme-preset p-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-primary transition-colors text-left"
-					data-preset="sunset"
-				>
-					<div class="flex gap-2 mb-2">
-						<div class="w-6 h-6 rounded-full bg-[#dc2626]"></div>
-						<div class="w-6 h-6 rounded-full bg-[#f59e0b]"></div>
-						<div class="w-6 h-6 rounded-full bg-[#fbbf24]"></div>
-					</div>
-					<span class="text-sm font-medium text-gray-800 dark:text-gray-200">Coucher de soleil</span>
-				</button>
-				<button
-					class="theme-preset p-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-primary transition-colors text-left"
-					data-preset="lavender"
-				>
-					<div class="flex gap-2 mb-2">
-						<div class="w-6 h-6 rounded-full bg-[#7c3aed]"></div>
-						<div class="w-6 h-6 rounded-full bg-[#a78bfa]"></div>
-						<div class="w-6 h-6 rounded-full bg-[#c4b5fd]"></div>
-					</div>
-					<span class="text-sm font-medium text-gray-800 dark:text-gray-200">Lavande</span>
-				</button>
+					<button class="theme-option" data-theme="cupcake">
+						<div class="flex items-center gap-3">
+							<div class="flex gap-1">
+								<div class="w-4 h-8 rounded bg-[#65c3c8]"></div>
+								<div class="w-4 h-8 rounded bg-[#ef9fbc]"></div>
+								<div class="w-4 h-8 rounded bg-[#eeaf3a]"></div>
+							</div>
+							<span class="font-medium">Cupcake</span>
+						</div>
+					</button>
+
+					<button class="theme-option" data-theme="emerald">
+						<div class="flex items-center gap-3">
+							<div class="flex gap-1">
+								<div class="w-4 h-8 rounded bg-[#66cc8a]"></div>
+								<div class="w-4 h-8 rounded bg-[#377cfb]"></div>
+								<div class="w-4 h-8 rounded bg-[#f68067]"></div>
+							</div>
+							<span class="font-medium">Emerald</span>
+						</div>
+					</button>
+
+					<button class="theme-option" data-theme="pastel">
+						<div class="flex items-center gap-3">
+							<div class="flex gap-1">
+								<div class="w-4 h-8 rounded bg-[#d1c1d7]"></div>
+								<div class="w-4 h-8 rounded bg-[#f6cbd1]"></div>
+								<div class="w-4 h-8 rounded bg-[#b4e9d6]"></div>
+							</div>
+							<span class="font-medium">Pastel</span>
+						</div>
+					</button>
+
+					<button class="theme-option" data-theme="fantasy">
+						<div class="flex items-center gap-3">
+							<div class="flex gap-1">
+								<div class="w-4 h-8 rounded bg-[#6e0b75]"></div>
+								<div class="w-4 h-8 rounded bg-[#c026d3]"></div>
+								<div class="w-4 h-8 rounded bg-[#e879f9]"></div>
+							</div>
+							<span class="font-medium">Fantasy</span>
+						</div>
+					</button>
+
+					<button class="theme-option" data-theme="lofi">
+						<div class="flex items-center gap-3">
+							<div class="flex gap-1">
+								<div class="w-4 h-8 rounded bg-[#0d0d0d]"></div>
+								<div class="w-4 h-8 rounded bg-[#1a1a1a]"></div>
+								<div class="w-4 h-8 rounded bg-[#808080]"></div>
+							</div>
+							<span class="font-medium">Lo-Fi</span>
+						</div>
+					</button>
+
+					<button class="theme-option" data-theme="winter">
+						<div class="flex items-center gap-3">
+							<div class="flex gap-1">
+								<div class="w-4 h-8 rounded bg-[#047AFF]"></div>
+								<div class="w-4 h-8 rounded bg-[#463AA2]"></div>
+								<div class="w-4 h-8 rounded bg-[#C148AC]"></div>
+							</div>
+							<span class="font-medium">Winter</span>
+						</div>
+					</button>
+				</div>
+			</div>
+
+			<!-- Dark Themes -->
+			<div>
+				<h4 class="text-sm font-semibold opacity-70 mb-3">🌙 Thèmes Sombres</h4>
+				<div class="grid grid-cols-1 gap-2">
+					<button class="theme-option" data-theme="dark">
+						<div class="flex items-center gap-3">
+							<div class="flex gap-1">
+								<div class="w-4 h-8 rounded bg-[#5a8a5e]"></div>
+								<div class="w-4 h-8 rounded bg-[#b8a889]"></div>
+								<div class="w-4 h-8 rounded bg-[#e4b5aa]"></div>
+							</div>
+							<span class="font-medium">Spirit Path (sombre)</span>
+						</div>
+					</button>
+
+					<button class="theme-option" data-theme="forest">
+						<div class="flex items-center gap-3">
+							<div class="flex gap-1">
+								<div class="w-4 h-8 rounded bg-[#1eb854]"></div>
+								<div class="w-4 h-8 rounded bg-[#1fd65f]"></div>
+								<div class="w-4 h-8 rounded bg-[#d99330]"></div>
+							</div>
+							<span class="font-medium">Forest</span>
+						</div>
+					</button>
+
+					<button class="theme-option" data-theme="business">
+						<div class="flex items-center gap-3">
+							<div class="flex gap-1">
+								<div class="w-4 h-8 rounded bg-[#1c4e80]"></div>
+								<div class="w-4 h-8 rounded bg-[#7c909a]"></div>
+								<div class="w-4 h-8 rounded bg-[#ea6947]"></div>
+							</div>
+							<span class="font-medium">Business</span>
+						</div>
+					</button>
+
+					<button class="theme-option" data-theme="night">
+						<div class="flex items-center gap-3">
+							<div class="flex gap-1">
+								<div class="w-4 h-8 rounded bg-[#38bdf8]"></div>
+								<div class="w-4 h-8 rounded bg-[#818cf8]"></div>
+								<div class="w-4 h-8 rounded bg-[#f471b5]"></div>
+							</div>
+							<span class="font-medium">Night</span>
+						</div>
+					</button>
+
+					<button class="theme-option" data-theme="coffee">
+						<div class="flex items-center gap-3">
+							<div class="flex gap-1">
+								<div class="w-4 h-8 rounded bg-[#DB924B]"></div>
+								<div class="w-4 h-8 rounded bg-[#263E3F]"></div>
+								<div class="w-4 h-8 rounded bg-[#10576D]"></div>
+							</div>
+							<span class="font-medium">Coffee</span>
+						</div>
+					</button>
+				</div>
+			</div>
+
+			<!-- Seasonal Themes -->
+			<div>
+				<h4 class="text-sm font-semibold opacity-70 mb-3">🍂 Thèmes Saisonniers</h4>
+				<div class="grid grid-cols-1 gap-2">
+					<button class="theme-option" data-theme="autumn">
+						<div class="flex items-center gap-3">
+							<div class="flex gap-1">
+								<div class="w-4 h-8 rounded bg-[#8C0327]"></div>
+								<div class="w-4 h-8 rounded bg-[#D85251]"></div>
+								<div class="w-4 h-8 rounded bg-[#7C9D96]"></div>
+							</div>
+							<span class="font-medium">Autumn</span>
+						</div>
+					</button>
+				</div>
 			</div>
 		</div>
 
-		<!-- Custom Colors -->
-		<div class="mb-8">
-			<h4 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-4">Personnalisé</h4>
-			<div class="space-y-4">
-				<div>
-					<label class="text-sm text-gray-600 dark:text-gray-400 mb-2 block">Couleur primaire</label>
-					<div class="flex items-center gap-3">
-						<input
-							type="color"
-							id="color-primary"
-							value="#4a6b4e"
-							class="w-12 h-12 rounded-lg cursor-pointer border-2 border-gray-200 dark:border-gray-700"
-						/>
-						<input
-							type="text"
-							id="color-primary-text"
-							value="#4a6b4e"
-							class="flex-1 px-3 py-2 rounded-lg border-2 border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 text-sm"
-						/>
-					</div>
-				</div>
-				<div>
-					<label class="text-sm text-gray-600 dark:text-gray-400 mb-2 block">Couleur secondaire</label>
-					<div class="flex items-center gap-3">
-						<input
-							type="color"
-							id="color-secondary"
-							value="#8a7f66"
-							class="w-12 h-12 rounded-lg cursor-pointer border-2 border-gray-200 dark:border-gray-700"
-						/>
-						<input
-							type="text"
-							id="color-secondary-text"
-							value="#8a7f66"
-							class="flex-1 px-3 py-2 rounded-lg border-2 border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 text-sm"
-						/>
-					</div>
-				</div>
-				<div>
-					<label class="text-sm text-gray-600 dark:text-gray-400 mb-2 block">Couleur accent</label>
-					<div class="flex items-center gap-3">
-						<input
-							type="color"
-							id="color-accent"
-							value="#d4a59a"
-							class="w-12 h-12 rounded-lg cursor-pointer border-2 border-gray-200 dark:border-gray-700"
-						/>
-						<input
-							type="text"
-							id="color-accent-text"
-							value="#d4a59a"
-							class="flex-1 px-3 py-2 rounded-lg border-2 border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 text-sm"
-						/>
-					</div>
-				</div>
-			</div>
+		<!-- Info -->
+		<div class="mt-6 p-4 bg-base-200 rounded-lg">
+			<p class="text-xs opacity-70">
+				💡 Les thèmes sont optimisés pour la lisibilité avec des contrastes harmonieux.
+				Changez avec le bouton ☀️/🌙 dans le menu.
+			</p>
 		</div>
-
-		<!-- Reset Button -->
-		<button
-			id="theme-reset"
-			class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-		>
-			Réinitialiser par défaut
-		</button>
 	</div>
 </div>
 
@@ -169,73 +213,46 @@
 	class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
 ></div>
 
+<style>
+	.theme-option {
+		@apply w-full p-3 rounded-lg border-2 border-base-300 hover:border-primary transition-all text-left;
+		@apply hover:scale-[1.02] active:scale-[0.98];
+	}
+
+	.theme-option.active {
+		@apply border-primary bg-primary/10;
+	}
+</style>
+
 <script>
-	const THEME_COLORS_KEY = 'spirit-path-theme-colors';
+	const THEME_KEY = 'spirit-path-theme';
 
-	interface ThemeColors {
-		primary: string;
-		secondary: string;
-		accent: string;
+	function getTheme(): string {
+		return localStorage.getItem(THEME_KEY) || 'light';
 	}
 
-	const presets: Record<string, ThemeColors> = {
-		default: { primary: '#4a6b4e', secondary: '#8a7f66', accent: '#d4a59a' },
-		ocean: { primary: '#2563eb', secondary: '#0891b2', accent: '#7dd3fc' },
-		sunset: { primary: '#dc2626', secondary: '#f59e0b', accent: '#fbbf24' },
-		lavender: { primary: '#7c3aed', secondary: '#a78bfa', accent: '#c4b5fd' },
-	};
+	function setTheme(theme: string) {
+		document.documentElement.setAttribute('data-theme', theme);
+		localStorage.setItem(THEME_KEY, theme);
 
-	function getCustomColors(): ThemeColors {
-		const stored = localStorage.getItem(THEME_COLORS_KEY);
-		return stored ? JSON.parse(stored) : presets.default;
-	}
+		// Update active state
+		document.querySelectorAll('.theme-option').forEach(btn => {
+			if (btn.getAttribute('data-theme') === theme) {
+				btn.classList.add('active');
+			} else {
+				btn.classList.remove('active');
+			}
+		});
 
-	function setCustomColors(colors: ThemeColors) {
-		localStorage.setItem(THEME_COLORS_KEY, JSON.stringify(colors));
-		applyColors(colors);
-	}
-
-	function applyColors(colors: ThemeColors) {
-		const root = document.documentElement;
-		root.style.setProperty('--color-primary', colors.primary);
-		root.style.setProperty('--color-secondary', colors.secondary);
-		root.style.setProperty('--color-accent', colors.accent);
-	}
-
-	function updateColorInputs(colors: ThemeColors) {
-		const primaryColor = document.getElementById('color-primary') as HTMLInputElement;
-		const primaryText = document.getElementById('color-primary-text') as HTMLInputElement;
-		const secondaryColor = document.getElementById('color-secondary') as HTMLInputElement;
-		const secondaryText = document.getElementById('color-secondary-text') as HTMLInputElement;
-		const accentColor = document.getElementById('color-accent') as HTMLInputElement;
-		const accentText = document.getElementById('color-accent-text') as HTMLInputElement;
-
-		if (primaryColor && primaryText) {
-			primaryColor.value = colors.primary;
-			primaryText.value = colors.primary;
-		}
-		if (secondaryColor && secondaryText) {
-			secondaryColor.value = colors.secondary;
-			secondaryText.value = colors.secondary;
-		}
-		if (accentColor && accentText) {
-			accentColor.value = colors.accent;
-			accentText.value = colors.accent;
-		}
+		// Dispatch event for ThemeSwitch
+		window.dispatchEvent(new CustomEvent('theme-changed', { detail: { theme } }));
 	}
 
 	document.addEventListener('DOMContentLoaded', () => {
-		// Apply custom colors on load
-		const colors = getCustomColors();
-		applyColors(colors);
-		updateColorInputs(colors);
-
 		const customizerBtn = document.getElementById('theme-customizer-btn');
 		const customizerPanel = document.getElementById('theme-customizer-panel');
 		const customizerClose = document.getElementById('theme-customizer-close');
 		const customizerBackdrop = document.getElementById('theme-customizer-backdrop');
-		const themeToggle = document.getElementById('theme-toggle-customizer') as HTMLInputElement;
-		const themeReset = document.getElementById('theme-reset');
 
 		// Open/Close panel
 		const openPanel = () => {
@@ -252,65 +269,18 @@
 		customizerClose?.addEventListener('click', closePanel);
 		customizerBackdrop?.addEventListener('click', closePanel);
 
-		// Theme toggle in customizer
-		if (themeToggle) {
-			const isDark = document.documentElement.classList.contains('dark');
-			themeToggle.checked = isDark;
-
-			themeToggle.addEventListener('change', () => {
-				const newTheme = themeToggle.checked ? 'dark' : 'light';
-				if (newTheme === 'dark') {
-					document.documentElement.classList.add('dark');
-				} else {
-					document.documentElement.classList.remove('dark');
-				}
-				localStorage.setItem('spirit-path-theme', newTheme);
-			});
-		}
-
-		// Preset buttons
-		document.querySelectorAll('.theme-preset').forEach((btn) => {
+		// Theme selection
+		document.querySelectorAll('.theme-option').forEach((btn) => {
 			btn.addEventListener('click', () => {
-				const preset = btn.getAttribute('data-preset');
-				if (preset && presets[preset]) {
-					setCustomColors(presets[preset]);
-					updateColorInputs(presets[preset]);
+				const theme = btn.getAttribute('data-theme');
+				if (theme) {
+					setTheme(theme);
 				}
 			});
 		});
 
-		// Color pickers
-		const setupColorPicker = (colorId: string, textId: string, colorKey: keyof ThemeColors) => {
-			const colorInput = document.getElementById(colorId) as HTMLInputElement;
-			const textInput = document.getElementById(textId) as HTMLInputElement;
-
-			if (colorInput && textInput) {
-				colorInput.addEventListener('input', () => {
-					textInput.value = colorInput.value;
-					const colors = getCustomColors();
-					colors[colorKey] = colorInput.value;
-					setCustomColors(colors);
-				});
-
-				textInput.addEventListener('input', () => {
-					if (/^#[0-9A-F]{6}$/i.test(textInput.value)) {
-						colorInput.value = textInput.value;
-						const colors = getCustomColors();
-						colors[colorKey] = textInput.value;
-						setCustomColors(colors);
-					}
-				});
-			}
-		};
-
-		setupColorPicker('color-primary', 'color-primary-text', 'primary');
-		setupColorPicker('color-secondary', 'color-secondary-text', 'secondary');
-		setupColorPicker('color-accent', 'color-accent-text', 'accent');
-
-		// Reset button
-		themeReset?.addEventListener('click', () => {
-			setCustomColors(presets.default);
-			updateColorInputs(presets.default);
-		});
+		// Initialize active theme
+		const currentTheme = getTheme();
+		setTheme(currentTheme);
 	});
 </script>

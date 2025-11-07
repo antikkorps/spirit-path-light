@@ -39,4 +39,39 @@ export default {
     },
   },
   plugins: [require("daisyui"), require("@tailwindcss/typography")],
+  daisyui: {
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/theming/themes")["light"],
+          primary: "#4a6b4e",
+          secondary: "#8a7f66",
+          accent: "#d4a59a",
+        },
+      },
+      {
+        dark: {
+          ...require("daisyui/src/theming/themes")["dark"],
+          primary: "#5a8a5e",
+          secondary: "#b8a889",
+          accent: "#e4b5aa",
+        },
+      },
+      "cupcake",
+      "emerald",
+      "forest",
+      "lofi",
+      "pastel",
+      "fantasy",
+      "autumn",
+      "business",
+      "night",
+      "coffee",
+      "winter",
+    ],
+    darkTheme: "dark",
+    base: true,
+    styled: true,
+    utils: true,
+  },
 }
