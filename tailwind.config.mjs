@@ -7,20 +7,9 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        primary: "#4a6b4e", // vert doux
-        secondary: "#e6c97a", // doré lumineux
-        accent: "#bfa980", // ton terreux
-        background: "#f5f5f5",
-        text: "#333333",
-      },
       fontFamily: {
         sans: ['"Inter"', '"Montserrat"', "sans-serif"],
         display: ['"Playfair Display"', "serif"],
-      },
-      backgroundImage: {
-        "zen-gradient": "linear-gradient(135deg, #4a6b4e 0%, #e6c97a 100%)",
-        "earth-gradient": "linear-gradient(120deg, #bfa980 0%, #e6c97a 100%)",
       },
       animation: {
         "fade-in": "fadeIn 1.5s ease-in",
