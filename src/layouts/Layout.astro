@@ -74,7 +74,19 @@ const ogImageURL = new URL(ogImage, Astro.site)
     <meta name="author" content="Camille Spirit" />
 
     <!-- Script d'initialisation immédiate du thème pour éviter le flash -->
-    <script is:inline src={Astro.resolve('../scripts/theme-init.js')}></script>
+    <script is:inline>
+      // Script d'initialisation simple du thème
+      ;(function () {
+        // Charger le thème sauvegardé ou utiliser la préférence système
+        const savedTheme = localStorage.getItem('theme')
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        
+        const currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light')
+        
+        // Appliquer le thème immédiatement
+        document.documentElement.setAttribute('data-theme', currentTheme)
+      })()
+    </script>
   </head>
   <body class="min-h-screen bg-base-200">
     <header class="sticky top-0 z-50 bg-base-100 shadow-md border-b border-base-300">
