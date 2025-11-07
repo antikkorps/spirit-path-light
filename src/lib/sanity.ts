@@ -99,3 +99,28 @@ export async function getHomepageSettings() {
 export function getDiceBearAvatar(style: string, seed: string) {
   return `https://api.dicebear.com/7.x/${style}/svg?seed=${encodeURIComponent(seed)}`
 }
+
+// Helper function to fetch FAQs
+export async function getFAQs(category?: string, page?: string) {
+  let query = `*[_type == "faq" && isPublished == true`
+
+  if (category) {
+    query += ` && category == "${category}"`
+  }
+
+  if (page) {
+    query += ` && "${page}" in relatedPages[]`
+  }
+
+  query += `] | order(order asc) {
+    _id,
+    question,
+    answer,
+    category,
+    order,
+    icon,
+    relatedPages
+  }`
+
+  return await sanityClient.fetch(query)
+}
