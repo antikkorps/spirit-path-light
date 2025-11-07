@@ -67,16 +67,28 @@
 		window.dispatchEvent(new CustomEvent('theme-changed', { detail: { theme: newTheme } }));
 	}
 
-	// Wait for DOM to be ready
+	function initializeTheme() {
+		// Initialize theme
+		const initialTheme = getTheme();
+		setTheme(initialTheme);
+
+		// Set up click listener
+		const toggleButton = document.getElementById('theme-toggle');
+		if (toggleButton) {
+			toggleButton.addEventListener('click', toggleTheme);
+		}
+
+		// Listen for theme changes from ThemeCustomizer
+		window.addEventListener('theme-changed', (e) => {
+			updateToggleUI(e.detail.theme);
+		});
+	}
+
+	// Wait for DOM to be ready - call initializeTheme after it's defined
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', initializeTheme);
 	} else {
 		// DOM already loaded
 		initializeTheme();
 	}
-
-	// Listen for theme changes from ThemeCustomizer
-	window.addEventListener('theme-changed', (e: CustomEvent<{ theme: string }>) => {
-		updateToggleUI(e.detail.theme);
-	});
 </script>
