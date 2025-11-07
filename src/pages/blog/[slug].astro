@@ -54,11 +54,16 @@ const ogImageUrl = post.seo?.ogImage ? urlFor(post.seo.ogImage).width(1200).heig
 							<!-- Categories -->
 							{post.categories && post.categories.length > 0 && (
 								<div class="flex flex-wrap gap-2 mb-4">
-									{post.categories.map((cat: any) => (
-										<span class={`inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-${cat.color || 'primary'} text-white`}>
-											{cat.title}
-										</span>
-									))}
+									{post.categories.map((cat: any) => {
+										const colorClass = cat.color === 'secondary' ? 'bg-secondary'
+											: cat.color === 'accent' ? 'bg-accent'
+											: 'bg-primary';
+										return (
+											<span class={`inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold ${colorClass} text-white`}>
+												{cat.title}
+											</span>
+										);
+									})}
 								</div>
 							)}
 
@@ -124,25 +129,7 @@ const ogImageUrl = post.seo?.ogImage ? urlFor(post.seo.ogImage).width(1200).heig
 					prose-img:rounded-2xl prose-img:shadow-xl
 					prose-ul:list-disc prose-ol:list-decimal
 				">
-					{post.body && (
-						<div set:html={
-							post.body.map((block: any) => {
-								if (block._type === 'block') {
-									const text = block.children.map((child: any) => child.text).join('');
-									if (block.style === 'h2') return `<h2>${text}</h2>`;
-									if (block.style === 'h3') return `<h3>${text}</h3>`;
-									if (block.style === 'h4') return `<h4>${text}</h4>`;
-									if (block.style === 'blockquote') return `<blockquote><p>${text}</p></blockquote>`;
-									return `<p>${text}</p>`;
-								}
-								if (block._type === 'image') {
-									const imgUrl = urlFor(block).width(1000).url();
-									return `<img src="${imgUrl}" alt="${block.alt || ''}" />`;
-								}
-								return '';
-							}).join('')
-						} />
-					)}
+					{post.body && <PortableText value={post.body} />}
 				</div>
 
 				<!-- Tags -->
@@ -181,8 +168,7 @@ const ogImageUrl = post.seo?.ogImage ? urlFor(post.seo.ogImage).width(1200).heig
 								<h3 class="text-xl font-bold text-gray-800 mb-2">À propos de {post.author.name}</h3>
 								{post.author.bio && (
 									<div class="text-gray-600 leading-relaxed prose prose-sm max-w-none">
-										{/* Simple bio rendering - you can enhance this with PortableText */}
-										<p>{post.author.bio}</p>
+										<PortableText value={post.author.bio} />
 									</div>
 								)}
 							</div>

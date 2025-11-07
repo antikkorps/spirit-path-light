@@ -37,24 +37,6 @@ const posts = await getBlogPosts();
 	</section>
 
 	<div class="container mx-auto px-4 py-16">
-		<!-- Filter/Categories section (future) -->
-		<div class="mb-12">
-			<div class="flex flex-wrap items-center gap-4 justify-center">
-				<button class="px-4 py-2 rounded-full bg-primary text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300">
-					Tous les articles
-				</button>
-				<button class="px-4 py-2 rounded-full bg-white text-gray-600 font-medium border border-gray-200 hover:border-primary hover:text-primary transition-all duration-300">
-					Méditation
-				</button>
-				<button class="px-4 py-2 rounded-full bg-white text-gray-600 font-medium border border-gray-200 hover:border-secondary hover:text-secondary transition-all duration-300">
-					Développement personnel
-				</button>
-				<button class="px-4 py-2 rounded-full bg-white text-gray-600 font-medium border border-gray-200 hover:border-accent hover:text-accent transition-all duration-300">
-					Spiritualité
-				</button>
-			</div>
-		</div>
-
 		<!-- Articles grid -->
 		{posts && posts.length > 0 ? (
 			<>
@@ -77,25 +59,6 @@ const posts = await getBlogPosts();
 							tags={post.tags}
 						/>
 					))}
-				</div>
-
-				<!-- Pagination (future) -->
-				<div class="mt-16 flex justify-center gap-2">
-					<button class="px-4 py-2 rounded-lg bg-gray-100 text-gray-400 cursor-not-allowed">
-						Précédent
-					</button>
-					<button class="px-4 py-2 rounded-lg bg-primary text-white font-medium">
-						1
-					</button>
-					<button class="px-4 py-2 rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-primary hover:text-primary transition-all duration-300">
-						2
-					</button>
-					<button class="px-4 py-2 rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-primary hover:text-primary transition-all duration-300">
-						3
-					</button>
-					<button class="px-4 py-2 rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-primary hover:text-primary transition-all duration-300">
-						Suivant
-					</button>
 				</div>
 			</>
 		) : (
