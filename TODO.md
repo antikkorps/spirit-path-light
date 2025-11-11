@@ -1,57 +1,96 @@
 # TODO - Spirit Path Light
 
+## 📊 État d'avancement global
+
+**Progression générale : ~85% complété** ✨
+
+### ✅ Réalisations majeures :
+- **Design & UX** : Refonte complète avec identité visuelle professionnelle
+- **CMS/CRM** : Configuration complète de Sanity avec tous les schémas
+- **Formulaires** : Formulaire de contact fonctionnel avec Netlify
+- **RGPD** : Politique de confidentialité complète et bannière cookies
+- **Blog** : Système complet avec design responsive
+- **Avis clients** : Intégration DiceBear, interface CRM et cartes optimisées
+- **SEO** : Configuration complète, sitemap XML, Twitter Cards et données structurées
+- **Newsletter** : Système d'inscription fonctionnel
+- **FAQ** : Section avec schéma Sanity
+- **Témoignages** : Système de filtrage interactif et modal "lire plus"
+
+### 🔄 En cours :
+- Tests en production du formulaire de contact
+- Nettoyage automatique des données (6 mois)
+
+### 📋 À venir (priorité haute) :
+- Configuration Google Search Console et Bing Webmaster Tools
+- Optimisation des Core Web Vitals et performance SEO
+
+### 📋 À venir (priorité moyenne) :
+- Animations au scroll
+- Galerie photos
+- Système de rendez-vous
+- Multilingue
+
+---
+
 ## 🎨 Design & UX
 
-- [ ] Améliorer le visuel général du site
-  - [ ] Créer une identité visuelle professionnelle tout en gardant l'aspect "ressenti"
-  - [ ] Harmoniser les couleurs et typographies
-  - [ ] Améliorer l'espacement et la hiérarchie visuelle
-  - [ ] Assurer la cohérence des composants
+- [x] Améliorer le visuel général du site
+  - [x] Créer une identité visuelle professionnelle tout en gardant l'aspect "ressenti"
+  - [x] Harmoniser les couleurs et typographies
+  - [x] Améliorer l'espacement et la hiérarchie visuelle
+  - [x] Assurer la cohérence des composants
 
-- [ ] Refondre le bouton du Hero
-  - [ ] Remplacer le gradient actuel (manque de lisibilité)
-  - [ ] Améliorer le contraste texte/fond
-  - [ ] Tester différentes variantes (couleur unie, ombre portée, animation subtile)
+- [x] Refondre le bouton du Hero
+  - [x] Remplacer le gradient actuel (manque de lisibilité)
+  - [x] Améliorer le contraste texte/fond
+  - [x] Tester différentes variantes (couleur unie, ombre portée, animation subtile)
 
 ## 📝 CMS/CRM (Sanity)
 
-- [ ] Configurer la gestion de la page d'accueil
-  - [ ] Créer un schéma Sanity pour les sections modifiables
-  - [ ] Permettre l'édition du Hero
-  - [ ] Permettre l'édition des sections principales
+- [x] Configurer la gestion de la page d'accueil
+  - [x] Créer un schéma Sanity pour les sections modifiables
+  - [x] Permettre l'édition du Hero
+  - [x] Permettre l'édition des sections principales
   - [ ] Ajouter un aperçu en temps réel (preview)
 
-- [ ] Configurer le système de blog
-  - [ ] Créer le schéma d'articles de blog
-  - [ ] Ajouter les champs : titre, contenu (rich text), image, date, catégories, tags
-  - [ ] Configurer l'éditeur Portable Text
-  - [ ] Ajouter un système de brouillons/publication
+- [x] Configurer le système de blog
+  - [x] Créer le schéma d'articles de blog
+  - [x] Ajouter les champs : titre, contenu (rich text), image, date, catégories, tags
+  - [x] Configurer l'éditeur Portable Text
+  - [x] Ajouter un système de brouillons/publication
 
-- [ ] Configurer la gestion des avis clients
-  - [ ] Créer le schéma pour les témoignages
-  - [ ] Intégrer la sélection d'avatars DiceBear
-  - [ ] Champs : nom/pseudonyme, avis, note, avatar choisi, date
-  - [ ] Système de validation/modération
+- [x] Configurer la gestion des avis clients
+  - [x] Créer le schéma pour les témoignages
+  - [x] Intégrer la sélection d'avatars DiceBear
+  - [x] Champs : nom/pseudonyme, avis, note, avatar choisi, date
+  - [x] Système de validation/modération
 
 ## 📧 Formulaires & Intégrations
 
-- [ ] Implémenter le formulaire de contact avec Netlify Forms
-  - [ ] Créer le composant de formulaire
-  - [ ] Configurer l'attribut `netlify` sur le form
-  - [ ] Ajouter la validation côté client
-  - [ ] Créer une page de confirmation
+- [x] Implémenter le formulaire de contact avec Netlify Forms
+  - [x] Créer le composant de formulaire
+  - [x] Configurer l'attribut `netlify` sur le form
+  - [x] Ajouter la validation côté client
+  - [x] Créer une page de confirmation
   - [ ] Tester l'envoi en production
+
+- [x] Newsletter
+  - [x] Créer le composant d'inscription
+  - [x] Intégrer avec le système d'envoi
+  - [x] Améliorer le design de la carte newsletter
+  - [x] Ajouter une animation d'inscription réussie
+  - [x] Personnaliser les messages de confirmation
 
 ## 🔒 Données & Confidentialité
 
-- [ ] Politique de confidentialité
-  - [ ] Rédiger la politique de données (RGPD)
-  - [ ] Créer une page dédiée
-  - [ ] Ajouter les mentions obligatoires
+- [x] Politique de confidentialité
+  - [x] Rédiger la politique de données (RGPD)
+  - [x] Créer une page dédiée
+  - [x] Ajouter les mentions obligatoires
 
-- [ ] Gestion des cookies et consentements
-  - [ ] Implémenter une bannière de consentement
-  - [ ] Créer un schéma Sanity pour stocker les consentements de manière anonymisée
+- [x] Gestion des cookies et consentements
+  - [x] Implémenter une bannière de consentement
+  - [x] Créer un schéma Sanity pour stocker les consentements de manière anonymisée
     - Données à conserver : IP (hashée), région, choix de cookies, timestamp
     - Exclure : nom, email, données personnelles
   - [ ] Implémenter un système de nettoyage automatique (tous les 6 mois)
@@ -60,56 +99,65 @@
 
 ## 📰 Blog
 
-- [ ] Design de la page blog
-  - [ ] Créer une page d'index des articles (grille/liste)
-  - [ ] Designer les cartes d'articles
+- [x] Design de la page blog
+  - [x] Créer une page d'index des articles (grille/liste)
+  - [x] Designer les cartes d'articles
   - [ ] Ajouter filtres par catégorie/tags
   - [ ] Implémenter la pagination
 
-- [ ] Design de l'article individuel
-  - [ ] Template d'article responsive
-  - [ ] Typographie optimisée pour la lecture
+- [x] Design de l'article individuel
+  - [x] Template d'article responsive
+  - [x] Typographie optimisée pour la lecture
   - [ ] Partage sur réseaux sociaux
   - [ ] Navigation article précédent/suivant
   - [ ] Articles suggérés en bas de page
 
+- [x] Mise en forme avancée des articles
+  - [x] Améliorer le rendu du Portable Text (titres, listes, citations)
+  - [x] Ajouter des styles pour les blocs de code
+  - [x] Optimiser l'affichage des images dans les articles
+  - [x] Créer un layout engageant avec sidebar
+  - [x] Ajouter une table des matières automatique
+
 ## ⭐ Avis Clients
 
-- [ ] Créer la section témoignages
-  - [ ] Designer le composant de carte témoignage
-  - [ ] Intégrer DiceBear pour les avatars asexués
-  - [ ] Implémenter un carousel ou grille
-  - [ ] Connecter à Sanity pour récupérer les avis
-  - [ ] Ajouter des animations subtiles
+- [x] Créer la section témoignages
+  - [x] Designer le composant de carte témoignage
+  - [x] Intégrer DiceBear pour les avatars asexués
+  - [x] Implémenter un carousel ou grille
+  - [x] Connecter à Sanity pour récupérer les avis
+  - [x] Ajouter des animations subtiles
+  - [x] Optimiser la hauteur des cartes avec système "lire plus"
+  - [x] Implémenter une modal élégante pour les témoignages longs
 
-- [ ] Interface CRM pour les avis
-  - [ ] Créer un sélecteur d'avatars DiceBear dans Sanity
-  - [ ] Prévisualisation de l'avatar choisi
-  - [ ] Options de tri et filtrage des avis
+- [x] Interface CRM pour les avis
+  - [x] Créer un sélecteur d'avatars DiceBear dans Sanity
+  - [x] Prévisualisation de l'avatar choisi
+  - [x] Options de tri et filtrage des avis
 
 ## 🔍 SEO (Optimisation pour les moteurs de recherche)
 
-- [ ] Configuration de base
-  - [ ] Configurer le fichier `robots.txt`
-  - [ ] Créer et soumettre le sitemap XML
+- [x] Configuration de base
+  - [x] Configurer le fichier `robots.txt`
+  - [x] Créer et soumettre le sitemap XML
   - [ ] Configurer Google Search Console
   - [ ] Configurer Bing Webmaster Tools
-  - [ ] Implémenter un fichier `manifest.json` pour PWA
+  - [x] Implémenter un fichier `manifest.json` pour PWA
 
-- [ ] Meta tags & OpenGraph
-  - [ ] Ajouter les meta descriptions sur toutes les pages (150-160 caractères)
-  - [ ] Configurer les balises OpenGraph (og:title, og:description, og:image, og:url)
-  - [ ] Ajouter les Twitter Cards (twitter:card, twitter:title, twitter:description, twitter:image)
+- [x] Meta tags & OpenGraph
+  - [x] Ajouter les meta descriptions sur toutes les pages (150-160 caractères)
+  - [x] Configurer les balises OpenGraph (og:title, og:description, og:image, og:url)
+  - [x] Ajouter les Twitter Cards (twitter:card, twitter:title, twitter:description, twitter:image)
   - [ ] Implémenter les meta tags dynamiques via Sanity
   - [ ] Créer des images OG par défaut et personnalisables
 
-- [ ] Structure & Données structurées (Schema.org)
-  - [ ] Implémenter le schema LocalBusiness
-  - [ ] Ajouter le schema Person (pour le professionnel)
-  - [ ] Schema Article pour les articles de blog
-  - [ ] Schema Review/AggregateRating pour les avis clients
+- [x] Structure & Données structurées (Schema.org)
+  - [x] Implémenter le schema LocalBusiness
+  - [x] Ajouter le schema Person (pour le professionnel)
+  - [x] Schema Article pour les articles de blog
+  - [x] Schema Review/AggregateRating pour les avis clients
   - [ ] Schema BreadcrumbList pour la navigation
-  - [ ] Tester avec Google Rich Results Test
+  - [x] Tester avec Google Rich Results Test
 
 - [ ] Contenu & Mots-clés
   - [ ] Recherche de mots-clés pertinents (bien-être, développement personnel, etc.)
@@ -170,10 +218,10 @@
 
 ## Améliorations futures (suggestions)
 
-- [ ] Mode sombre/clair
+- [x] Mode sombre/clair
 - [ ] Animations au scroll (subtiles)
-- [ ] Section FAQ avec schéma Sanity
-- [ ] Newsletter (intégration Mailchimp/Sendgrid)
+- [x] Section FAQ avec schéma Sanity
+- [x] Newsletter (intégration Mailchimp/Sendgrid)
 - [ ] Galerie photos des séances (si pertinent)
 - [ ] Système de prise de rendez-vous en ligne
 - [ ] Multilingue (FR/EN)

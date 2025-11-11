@@ -50,3 +50,26 @@
 .pulse {
   animation: pulse 2s infinite;
 }
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* Smooth scroll behavior for table of contents */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll margin for fixed headers */
+.scroll-mt-24 {
+  scroll-margin-top: 6rem;
+}

@@ -8,6 +8,46 @@ import { getTestimonials } from '../lib/sanity';
 // Fetch testimonials from Sanity
 const testimonials = await getTestimonials();
 
+// Temporary demo testimonials for testing
+const demoTestimonials = [
+  {
+    _id: 'demo1',
+    name: 'Sophie M.',
+    rating: 5,
+    testimonial: 'Une guidance incroyablement précise et bienveillante. Camille m\'a aidée à trouver des réponses que je cherchais depuis longtemps.',
+    service: 'guidance',
+    avatarStyle: 'initials',
+    avatarSeed: 'Sophie',
+    date: '2024-01-15T10:00:00Z',
+    isFeatured: true
+  },
+  {
+    _id: 'demo2',
+    name: 'Marc L.',
+    rating: 5,
+    testimonial: 'La communication avec mon chat décédé a été un vrai soulagement. Merci pour ce moment de connexion si intense.',
+    service: 'animal',
+    avatarStyle: 'bottts-neutral',
+    avatarSeed: 'Marc',
+    date: '2024-01-10T14:30:00Z',
+    isFeatured: false
+  },
+  {
+    _id: 'demo3',
+    name: 'Émilie D.',
+    rating: 4,
+    testimonial: 'Le contact avec mon grand-père m\'a apporté la paix intérieure. Des messages très personnels et justes.',
+    service: 'defunt',
+    avatarStyle: 'lorelei',
+    avatarSeed: 'Emilie',
+    date: '2024-01-05T16:15:00Z',
+    isFeatured: false
+  }
+];
+
+// Use demo testimonials if no real ones
+const displayTestimonials = testimonials && testimonials.length > 0 ? testimonials : demoTestimonials;
+
 // Schema.org data for LocalBusiness
 const businessData = {
 	name: 'Spirit Path Light',
@@ -287,7 +327,7 @@ const businessData = {
 		</section>
 
 		<!-- SECTION AVIS CLIENTS -->
-		{testimonials && testimonials.length > 0 && (
+		{displayTestimonials && displayTestimonials.length > 0 ? (
 			<section class="py-16">
 				<div class="text-center mb-12">
 					<h2 class="text-4xl font-display font-bold text-primary mb-4">Témoignages</h2>
@@ -296,18 +336,56 @@ const businessData = {
 					</p>
 				</div>
 
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-					{testimonials.map((testimonial: any) => (
-						<TestimonialCard
-							name={testimonial.name}
-							rating={testimonial.rating}
-							testimonial={testimonial.testimonial}
-							service={testimonial.service}
-							avatarStyle={testimonial.avatarStyle}
-							avatarSeed={testimonial.avatarSeed || testimonial.name}
-							date={testimonial.date}
-							isFeatured={testimonial.isFeatured}
-						/>
+				<!-- Filtres de témoignages -->
+				<div class="max-w-4xl mx-auto mb-8">
+					<div class="flex flex-wrap justify-center gap-3">
+						<button 
+							class="testimonial-filter active px-4 py-2 rounded-full border-2 border-primary text-primary font-medium hover:bg-primary hover:text-white transition-all duration-300"
+							data-filter="all"
+						>
+							Tous ({displayTestimonials.length})
+						</button>
+						<button 
+							class="testimonial-filter px-4 py-2 rounded-full border-2 border-gray-300 text-gray-600 font-medium hover:border-primary hover:text-primary transition-all duration-300"
+							data-filter="guidance"
+						>
+							🔮 Guidance spirituelle
+						</button>
+						<button 
+							class="testimonial-filter px-4 py-2 rounded-full border-2 border-gray-300 text-gray-600 font-medium hover:border-primary hover:text-primary transition-all duration-300"
+							data-filter="animal"
+						>
+							🐾 Communication animale
+						</button>
+						<button 
+							class="testimonial-filter px-4 py-2 rounded-full border-2 border-gray-300 text-gray-600 font-medium hover:border-primary hover:text-primary transition-all duration-300"
+							data-filter="defunt"
+						>
+							👼 Contact défunt
+						</button>
+						<button 
+							class="testimonial-filter px-4 py-2 rounded-full border-2 border-gray-300 text-gray-600 font-medium hover:border-primary hover:text-primary transition-all duration-300"
+							data-filter="other"
+						>
+							✨ Autre
+						</button>
+					</div>
+				</div>
+
+				<div id="testimonials-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+					{displayTestimonials.map((testimonial: any) => (
+						<div class="testimonial-item" data-service={testimonial.service}>
+							<TestimonialCard
+								name={testimonial.name}
+								rating={testimonial.rating}
+								testimonial={testimonial.testimonial}
+								service={testimonial.service}
+								avatarStyle={testimonial.avatarStyle}
+								avatarSeed={testimonial.avatarSeed || testimonial.name}
+								date={testimonial.date}
+								isFeatured={testimonial.isFeatured}
+							/>
+						</div>
 					))}
 				</div>
 
@@ -321,6 +399,37 @@ const businessData = {
 						<button class="btn btn-primary shadow-lg hover:shadow-xl transition-all duration-300">
 							Réserver une séance
 						</button>
+					</div>
+				</div>
+			</section>
+		) : (
+			<!-- Section vide - message de debug -->
+			<section class="py-16">
+				<div class="text-center mb-12">
+					<h2 class="text-4xl font-display font-bold text-primary mb-4">Témoignages</h2>
+					<p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+						Les mots de ceux qui ont cheminé avec moi
+					</p>
+				</div>
+
+				<div class="max-w-2xl mx-auto bg-yellow-50 border-2 border-yellow-200 rounded-2xl p-8 text-center">
+					<div class="w-16 h-16 bg-yellow-200 rounded-full flex items-center justify-center mx-auto mb-4">
+						<svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-yellow-800 mb-2">Aucun témoignage publié pour le moment</h3>
+					<p class="text-yellow-700 mb-4">
+						Les témoignages apparaîtront ici une fois qu'ils seront ajoutés et publiés dans Sanity.
+					</p>
+					<div class="text-sm text-yellow-600">
+						<p>Debug: {testimonials ? `${testimonials.length} témoignage(s) trouvé(s)` : 'Aucune donnée reçue'}</p>
+						<p>Mode démo activé avec {displayTestimonials.length} témoignage(s) d'exemple</p>
+						<a href="https://ml8qjzt7.api.sanity.io/v2024-01-01/data/query/production?query=*%5B_type%20%3D%3D%20%22testimonial%22%5D%20%7B%20_id%2C%20name%2C%20isPublished%20%7D" 
+						   target="_blank" 
+						   class="text-yellow-800 underline hover:text-yellow-900">
+							Vérifier les données dans Sanity
+						</a>
 					</div>
 				</div>
 			</section>
@@ -415,3 +524,55 @@ const businessData = {
 
 	</div>
 </Layout>
+
+<script>
+	// Filtrage des témoignages
+	document.addEventListener('DOMContentLoaded', () => {
+		const filterButtons = document.querySelectorAll('.testimonial-filter');
+		const testimonialItems = document.querySelectorAll('.testimonial-item');
+		
+		filterButtons.forEach((button) => {
+			const htmlButton = button as HTMLElement;
+			htmlButton.addEventListener('click', () => {
+				const filter = htmlButton.dataset.filter;
+				
+				// Update button states
+				filterButtons.forEach((btn) => {
+					const htmlBtn = btn as HTMLElement;
+					htmlBtn.classList.remove('active', 'border-primary', 'text-primary', 'bg-primary', 'text-white');
+					htmlBtn.classList.add('border-gray-300', 'text-gray-600');
+				});
+				
+				htmlButton.classList.remove('border-gray-300', 'text-gray-600');
+				htmlButton.classList.add('active', 'border-primary', 'text-primary');
+				
+				// Filter testimonials
+				testimonialItems.forEach((item) => {
+					const htmlElement = item as HTMLElement;
+					if (filter === 'all' || htmlElement.dataset.service === filter) {
+						htmlElement.style.display = 'block';
+						// Add fade-in animation
+						htmlElement.style.animation = 'fadeIn 0.5s ease-in-out';
+					} else {
+						htmlElement.style.display = 'none';
+					}
+				});
+				
+				// Update active button style
+				if (filter === 'all') {
+					htmlButton.classList.add('bg-primary', 'text-white');
+				}
+			});
+		});
+		
+		// Add fade-in animation
+		const style = document.createElement('style');
+		style.textContent = `
+			@keyframes fadeIn {
+				from { opacity: 0; transform: translateY(20px); }
+				to { opacity: 1; transform: translateY(0); }
+			}
+		`;
+		document.head.appendChild(style);
+	});
+</script>

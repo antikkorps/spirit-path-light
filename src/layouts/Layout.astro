@@ -50,6 +50,9 @@ const ogImageURL = new URL(ogImage, Astro.site)
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
+    <meta name="twitter:image:alt" content={title} />
+    <meta name="twitter:site" content="@camille_spirit" />
+    <meta name="twitter:creator" content="@camille_spirit" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -78,13 +81,15 @@ const ogImageURL = new URL(ogImage, Astro.site)
       // Script d'initialisation simple du thème
       ;(function () {
         // Charger le thème sauvegardé ou utiliser la préférence système
-        const savedTheme = localStorage.getItem('theme')
-        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-        
-        const currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light')
-        
+        const savedTheme = localStorage.getItem("theme")
+        const systemPrefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches
+
+        const currentTheme = savedTheme || (systemPrefersDark ? "dark" : "light")
+
         // Appliquer le thème immédiatement
-        document.documentElement.setAttribute('data-theme', currentTheme)
+        document.documentElement.setAttribute("data-theme", currentTheme)
       })()
     </script>
   </head>
@@ -215,7 +220,7 @@ const ogImageURL = new URL(ogImage, Astro.site)
     <footer class="py-8 mt-16 bg-base-100 text-base-content/70 border-t border-base-300">
       <div class="container mx-auto px-4">
         <div class="text-center">
-          <p>&copy; 2024 Spirit Path Light. Tous droits réservés.</p>
+          <p>&copy; 2025 Spirit Path Light. Tous droits réservés.</p>
         </div>
       </div>
     </footer>

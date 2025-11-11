@@ -81,6 +81,54 @@ export default defineType({
       initialValue: false,
       description: 'Mettre en avant ce témoignage (apparaît en premier)',
     }),
+    defineField({
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{type: 'string'}],
+      description: 'Tags pour le filtrage (ex: "transformateur", "bienveillant", "précis")',
+    }),
+    defineField({
+      name: 'language',
+      title: 'Langue',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Français', value: 'fr'},
+          {title: 'Anglais', value: 'en'},
+        ],
+      },
+      initialValue: 'fr',
+    }),
+    defineField({
+      name: 'verified',
+      title: 'Témoignage vérifié',
+      type: 'boolean',
+      initialValue: true,
+      description: 'Indique si le témoignage a été vérifié comme authentique',
+    }),
+  ],
+  orderings: [
+    {
+      title: 'Date du plus récent au plus ancien',
+      name: 'dateDesc',
+      by: [{field: 'date', direction: 'desc'}],
+    },
+    {
+      title: 'Date du plus ancien au plus récent',
+      name: 'dateAsc',
+      by: [{field: 'date', direction: 'asc'}],
+    },
+    {
+      title: 'Note la plus élevée',
+      name: 'ratingDesc',
+      by: [{field: 'rating', direction: 'desc'}],
+    },
+    {
+      title: 'Nom alphabétique',
+      name: 'nameAsc',
+      by: [{field: 'name', direction: 'asc'}],
+    },
   ],
   preview: {
     select: {
@@ -88,12 +136,26 @@ export default defineType({
       subtitle: 'testimonial',
       rating: 'rating',
       isPublished: 'isPublished',
+      isFeatured: 'isFeatured',
+      service: 'service',
+      date: 'date',
     },
     prepare(selection) {
-      const {title, subtitle, rating, isPublished} = selection
+      const {title, subtitle, rating, isPublished, isFeatured, service, date} = selection
+      const serviceLabels: Record<string, string> = {
+        guidance: '🔮',
+        animal: '🐾',
+        defunt: '👼',
+        other: '✨'
+      }
+      const icon = serviceLabels[service || 'other'] || '✨'
+      const featured = isFeatured ? '⭐' : ''
+      const status = isPublished ? '✓' : '✗'
+      const formattedDate = new Date(date).toLocaleDateString('fr-FR')
+      
       return {
-        title,
-        subtitle: `${subtitle?.substring(0, 60)}... (${rating}⭐) ${isPublished ? '✓' : '✗'}`,
+        title: `${featured} ${title}`,
+        subtitle: `${icon} ${subtitle?.substring(0, 50)}... (${rating}⭐) ${status} - ${formattedDate}`,
       }
     },
   },
