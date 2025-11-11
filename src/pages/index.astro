@@ -534,35 +534,35 @@ const businessData = {
 		const testimonialItems = document.querySelectorAll('.testimonial-item');
 		
 		filterButtons.forEach((button) => {
-			const htmlButton = button as HTMLElement;
-			htmlButton.addEventListener('click', () => {
-				const filter = htmlButton.dataset.filter;
+			if (!(button instanceof HTMLElement)) return;
+			button.addEventListener('click', () => {
+				const filter = button.dataset.filter;
 				
 				// Update button states
 				filterButtons.forEach((btn) => {
-					const htmlBtn = btn as HTMLElement;
-					htmlBtn.classList.remove('active', 'border-primary', 'text-primary', 'bg-primary', 'text-white');
-					htmlBtn.classList.add('border-gray-300', 'text-gray-600');
+					if (!(btn instanceof HTMLElement)) return;
+					btn.classList.remove('active', 'border-primary', 'text-primary', 'bg-primary', 'text-white');
+					btn.classList.add('border-gray-300', 'text-gray-600');
 				});
 				
-				htmlButton.classList.remove('border-gray-300', 'text-gray-600');
-				htmlButton.classList.add('active', 'border-primary', 'text-primary');
+				button.classList.remove('border-gray-300', 'text-gray-600');
+				button.classList.add('active', 'border-primary', 'text-primary');
 				
 				// Filter testimonials
 				testimonialItems.forEach((item) => {
-					const htmlElement = item as HTMLElement;
-					if (filter === 'all' || htmlElement.dataset.service === filter) {
-						htmlElement.style.display = 'block';
+					if (!(item instanceof HTMLElement)) return;
+					if (filter === 'all' || item.dataset.service === filter) {
+						item.style.display = 'block';
 						// Add fade-in animation
-						htmlElement.style.animation = 'fadeIn 0.5s ease-in-out';
+						item.style.animation = 'fadeIn 0.5s ease-in-out';
 					} else {
-						htmlElement.style.display = 'none';
+						item.style.display = 'none';
 					}
 				});
 				
 				// Update active button style
 				if (filter === 'all') {
-					htmlButton.classList.add('bg-primary', 'text-white');
+					button.classList.add('bg-primary', 'text-white');
 				}
 			});
 		});
