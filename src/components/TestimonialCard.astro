@@ -148,7 +148,7 @@ const shortTestimonial = isLongTestimonial ? testimonial.substring(0, maxChars) 
 </div>
 
 <!-- Testimonial Modal -->
-<div id="testimonial-modal" class="fixed inset-0 z-[9999] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+<div id="testimonial-modal" role="dialog" aria-modal="true" aria-labelledby="modal-author" class="fixed inset-0 z-[9999] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
 	<div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-all duration-300">
 		<div class="p-8">
 			<!-- Modal Header -->
