@@ -16,78 +16,97 @@ const filteredFAQs = category
 
 {filteredFAQs && filteredFAQs.length > 0 && (
 	<div class="faq-section">
-		<div class="text-center mb-12">
-			<h2 class="text-3xl md:text-4xl font-display font-bold text-gray-800 dark:text-gray-100 mb-4">
+		<div class="text-center mb-16">
+			<h2 class="text-4xl md:text-5xl font-display font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-6">
 				{title}
 			</h2>
 			{description && (
-				<p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+				<p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
 					{description}
 				</p>
 			)}
 		</div>
 
-		<div class="max-w-4xl mx-auto space-y-4">
+		<div class="max-w-4xl mx-auto space-y-6">
 			{filteredFAQs.map((faq: any, index: number) => (
-				<details
-					class="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700 overflow-hidden"
-				>
-					<summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-100 text-lg hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
-						<div class="flex items-center gap-3 flex-1">
-							{faq.icon && (
-								<span class="text-2xl flex-shrink-0">{faq.icon}</span>
-							)}
-							<span class="flex-1">{faq.question}</span>
-						</div>
-						<svg
-							class="w-6 h-6 text-primary group-open:rotate-180 transition-transform duration-300 flex-shrink-0 ml-4"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-						>
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-						</svg>
-					</summary>
-					<div class="px-6 pb-6 pt-2">
-						<div class="prose prose-gray dark:prose-invert max-w-none">
-							{faq.answer && (
-								<div class="text-gray-600 dark:text-gray-400 leading-relaxed">
-									{/* Simple text rendering - enhance with PortableText for rich content */}
-									{typeof faq.answer === 'string' ? (
-										<p>{faq.answer}</p>
+				<div class="faq-item relative">
+					<input 
+						type="checkbox" 
+						id={`faq-${index}`} 
+						class="sr-only peer"
+					/>
+					<label 
+						for={`faq-${index}`}
+						class="block bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700 peer-checked:border-primary/30 peer-checked:shadow-lg cursor-pointer"
+					>
+						<div class="p-6 md:p-8">
+							<div class="flex items-start gap-4">
+								<div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary/10 to-secondary/10 dark:from-primary/20 dark:to-secondary/20 rounded-xl flex items-center justify-center">
+									{faq.icon ? (
+										<span class="text-2xl">{faq.icon}</span>
 									) : (
-										faq.answer.map((block: any) =>
-											block._type === 'block' ? (
-												<p>{block.children.map((child: any) => child.text).join('')}</p>
-											) : null
-										)
+										<svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+										</svg>
 									)}
 								</div>
-							)}
+								<div class="flex-1 min-w-0">
+									<h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2 pr-8">
+										{faq.question}
+									</h3>
+									<div class="text-gray-600 dark:text-gray-400 text-sm md:text-base leading-relaxed">
+										{faq.answer && (
+											typeof faq.answer === 'string' ? (
+												<p>{faq.answer}</p>
+											) : (
+												faq.answer.map((block: any) =>
+													block._type === 'block' ? (
+														<p>{block.children.map((child: any) => child.text).join('')}</p>
+													) : null
+												)
+											)
+										)}
+									</div>
+								</div>
+								<div class="flex-shrink-0">
+									<svg class="w-6 h-6 text-gray-400 peer-checked:text-primary transition-colors duration-300 transform peer-checked:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+									</svg>
+								</div>
+							</div>
 						</div>
-					</div>
-				</details>
+					</label>
+				</div>
 			))}
 		</div>
 
-		<!-- CTA at the end -->
-		<div class="mt-12 text-center">
-			<div class="bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-primary/20 dark:to-secondary/20 rounded-2xl p-8 max-w-2xl mx-auto border border-primary/20 dark:border-primary/30">
-				<h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">
-					Vous ne trouvez pas votre réponse ?
-				</h3>
-				<p class="text-gray-600 dark:text-gray-400 mb-6">
-					N'hésitez pas à nous contacter, nous serons ravis de vous aider
-				</p>
-				<a
-					href="/contact"
-					class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-				>
-					Nous contacter
-					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-					</svg>
-				</a>
+		<!-- CTA Section -->
+		<div class="mt-20">
+			<div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary via-secondary to-accent p-1">
+				<div class="relative bg-white dark:bg-gray-900 rounded-3xl p-8 md:p-12">
+					<div class="text-center max-w-2xl mx-auto">
+						<div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+							<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+							</svg>
+						</div>
+						<h3 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+							Vous ne trouvez pas votre réponse ?
+						</h3>
+						<p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+							Nous sommes là pour vous accompagner. N'hésitez pas à nous contacter pour toute question supplémentaire.
+						</p>
+						<a
+							href="/contact"
+							class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+						>
+							Nous contacter
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+							</svg>
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

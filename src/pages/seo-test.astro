@@ -1,0 +1,198 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getBlogPosts, getTestimonials } from '../lib/sanity';
+
+// Fetch data for testing
+const blogPosts = await getBlogPosts();
+const testimonials = await getTestimonials();
+---
+
+<Layout title="SEO Test - Spirit Path Light" noindex={true}>
+	<div class="container mx-auto px-4 py-16">
+		<div class="max-w-4xl mx-auto">
+			<h1 class="text-4xl font-display font-bold text-primary mb-8">SEO & Rich Results Test</h1>
+			
+			<div class="space-y-12">
+				<!-- Sitemap Section -->
+				<section class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+					<h2 class="text-2xl font-bold text-gray-800 mb-4">🗺️ Sitemap</h2>
+					<div class="space-y-4">
+						<div>
+							<h3 class="font-semibold text-gray-700 mb-2">Liens à tester :</h3>
+							<ul class="space-y-2">
+								<li><a href="/sitemap.xml" target="_blank" class="text-primary hover:underline">/sitemap.xml</a> - Sitemap complet</li>
+								<li><a href="/robots.txt" target="_blank" class="text-primary hover:underline">/robots.txt</a> - Instructions robots</li>
+								<li><a href="/manifest.json" target="_blank" class="text-primary hover:underline">/manifest.json</a> - PWA Manifest</li>
+							</ul>
+						</div>
+						
+						<div class="bg-green-50 border-l-4 border-green-400 p-4 rounded">
+							<p class="text-sm text-green-800">
+								<strong>Test Google :</strong> 
+								<a href="https://search.google.com/test/rich-results" target="_blank" class="underline hover:text-green-600">
+									Google Rich Results Test
+								</a>
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- Pages to Test -->
+				<section class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+					<h2 class="text-2xl font-bold text-gray-800 mb-4">🔍 Pages à tester</h2>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+						<a href="/" class="p-4 border-2 border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-all">
+							<h3 class="font-semibold text-primary">Page d'accueil</h3>
+							<p class="text-sm text-gray-600">LocalBusiness Schema</p>
+						</a>
+						
+						<a href="/blog" class="p-4 border-2 border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-all">
+							<h3 class="font-semibold text-primary">Blog</h3>
+							<p class="text-sm text-gray-600">Liste d'articles</p>
+						</a>
+						
+						{blogPosts.slice(0, 3).map((post: any) => (
+							<a href={`/blog/${post.slug.current}`} class="p-4 border-2 border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-all">
+								<h3 class="font-semibold text-primary">{post.title}</h3>
+								<p class="text-sm text-gray-600">Article Schema</p>
+							</a>
+						))}
+						
+						<a href="/contact" class="p-4 border-2 border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-all">
+							<h3 class="font-semibold text-primary">Contact</h3>
+							<p class="text-sm text-gray-600">Formulaire + FAQ</p>
+						</a>
+					</div>
+				</section>
+
+				<!-- Schema.org Validation -->
+				<section class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+					<h2 class="text-2xl font-bold text-gray-800 mb-4">📋 Schema.org implémentés</h2>
+					<div class="space-y-3">
+						<div class="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
+							<svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+							</svg>
+							<span><strong>LocalBusiness</strong> - Page d'accueil</span>
+						</div>
+						
+						<div class="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
+							<svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+							</svg>
+							<span><strong>Person</strong> - Informations sur Camille Spirit</span>
+						</div>
+						
+						<div class="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
+							<svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+							</svg>
+							<span><strong>Article</strong> - Articles de blog</span>
+						</div>
+						
+						<div class="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
+							<svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+							</svg>
+							<span><strong>Review/AggregateRating</strong> - Témoignages</span>
+						</div>
+						
+						<div class="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
+							<svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+							</svg>
+							<span><strong>FAQ</strong> - Page FAQ</span>
+						</div>
+					</div>
+				</section>
+
+				<!-- Twitter Cards Validation -->
+				<section class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+					<h2 class="text-2xl font-bold text-gray-800 mb-4">🐦 Twitter Cards</h2>
+					<div class="space-y-4">
+						<div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
+							<p class="text-sm text-blue-800">
+								<strong>Test Twitter :</strong> 
+								<a href="https://cards-dev.twitter.com/validator" target="_blank" class="underline hover:text-blue-600">
+									Twitter Card Validator
+								</a>
+							</p>
+						</div>
+						
+						<div class="space-y-2">
+							<h3 class="font-semibold text-gray-700">Meta tags implémentés :</h3>
+							<ul class="text-sm text-gray-600 space-y-1">
+								<li>✅ twitter:card = summary_large_image</li>
+								<li>✅ twitter:site = @camille_spirit</li>
+								<li>✅ twitter:creator = @camille_spirit</li>
+								<li>✅ twitter:title</li>
+								<li>✅ twitter:description</li>
+								<li>✅ twitter:image</li>
+								<li>✅ twitter:image:alt</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<!-- Open Graph Validation -->
+				<section class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+					<h2 class="text-2xl font-bold text-gray-800 mb-4">📘 Open Graph</h2>
+					<div class="space-y-4">
+						<div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
+							<p class="text-sm text-blue-800">
+								<strong>Test Facebook :</strong> 
+								<a href="https://developers.facebook.com/tools/debug/" target="_blank" class="underline hover:text-blue-600">
+									Facebook Sharing Debugger
+								</a>
+							</p>
+						</div>
+						
+						<div class="space-y-2">
+							<h3 class="font-semibold text-gray-700">Meta tags implémentés :</h3>
+							<ul class="text-sm text-gray-600 space-y-1">
+								<li>✅ og:type</li>
+								<li>✅ og:url</li>
+								<li>✅ og:title</li>
+								<li>✅ og:description</li>
+								<li>✅ og:image</li>
+								<li>✅ og:site_name</li>
+								<li>✅ og:locale = fr_FR</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<!-- Test Results -->
+				<section class="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl p-8 border border-primary/20">
+					<h2 class="text-2xl font-bold text-primary mb-4">📊 Checklist de validation SEO</h2>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+						<div class="space-y-2">
+							<h3 class="font-semibold text-gray-800">✅ Complété :</h3>
+							<ul class="text-sm text-gray-600 space-y-1">
+								<li>✅ Sitemap XML dynamique</li>
+								<li>✅ Robots.txt configuré</li>
+								<li>✅ Meta descriptions uniques</li>
+								<li>✅ Twitter Cards complètes</li>
+								<li>✅ Open Graph complet</li>
+								<li>✅ Données structurées Schema.org</li>
+								<li>✅ Balises canoniques</li>
+								<li>✅ PWA Manifest</li>
+							</ul>
+						</div>
+						
+						<div class="space-y-2">
+							<h3 class="font-semibold text-gray-800">🔗 Actions requises :</h3>
+							<ul class="text-sm text-gray-600 space-y-1">
+								<li>🔗 Tester avec Google Rich Results Test</li>
+								<li>🔗 Soumettre sitemap à Google Search Console</li>
+								<li>🔗 Tester avec Facebook Sharing Debugger</li>
+								<li>🔗 Tester avec Twitter Card Validator</li>
+								<li>🔗 Configurer Google Analytics 4</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</Layout>
