@@ -132,39 +132,39 @@ const headings = post.body?.filter((block: any) =>
 					<div class="xl:col-span-3">
 						<!-- Excerpt -->
 						{post.excerpt && (
-							<div class="text-xl text-gray-700 leading-relaxed mb-12 p-6 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl border-l-4 border-primary">
+							<div class="text-xl text-base-content/70 leading-relaxed mb-12 p-6 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl border-l-4 border-primary">
 								{post.excerpt}
 							</div>
 						)}
 
 						<!-- Article body with enhanced styling -->
-						<div class="prose prose-lg prose-gray max-w-none
-							prose-headings:font-display prose-headings:font-bold prose-headings:text-gray-800
+						<div class="prose prose-lg max-w-none
+							prose-headings:font-display prose-headings:font-bold prose-headings:text-base-content
 							prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:text-primary prose-h2:scroll-mt-24
 							prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-secondary prose-h3:scroll-mt-24
-							prose-h4:text-xl prose-h4:mt-6 prose-h4:mb-3 prose-h4:text-gray-800 prose-h4:scroll-mt-24
-							prose-p:leading-relaxed prose-p:text-gray-700 prose-p:mb-6
+							prose-h4:text-xl prose-h4:mt-6 prose-h4:mb-3 prose-h4:text-base-content prose-h4:scroll-mt-24
+							prose-p:leading-relaxed prose-p:text-base-content/70 prose-p:mb-6
 							prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-							prose-strong:text-gray-900 prose-strong:font-semibold
+							prose-strong:text-base-content prose-strong:font-semibold
 							prose-em:italic
 							prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-primary/5 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:italic
 							prose-img:rounded-2xl prose-img:shadow-xl
 							prose-ul:list-disc prose-ol:list-decimal
-							prose-code:bg-gray-100 prose-code:text-gray-800 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-code:font-mono
-							prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto
+							prose-code:bg-base-200 prose-code:text-base-content prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-code:font-mono
+							prose-pre:bg-base-content prose-pre:text-base-100 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto
 						">
 							{post.body && <PortableText value={post.body} />}
 						</div>
 
 				<!-- Tags -->
 						{post.tags && post.tags.length > 0 && (
-							<div class="mt-12 pt-8 border-t border-gray-200">
+							<div class="mt-12 pt-8 border-t border-base-300">
 								<div class="flex flex-wrap items-center gap-3">
-									<span class="font-semibold text-gray-700">Tags:</span>
+									<span class="font-semibold text-base-content/70">Tags:</span>
 									{post.tags.map((tag: string) => (
 										<a
 											href={`/blog?tag=${tag}`}
-											class="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-gray-600 text-sm hover:bg-primary hover:text-white transition-colors duration-300"
+											class="inline-flex items-center px-3 py-1 rounded-full bg-base-200 text-base-content/60 text-sm hover:bg-primary hover:text-white transition-colors duration-300"
 										>
 											#{tag}
 										</a>
@@ -189,9 +189,9 @@ const headings = post.body?.filter((block: any) =>
 										</div>
 									)}
 									<div class="flex-1">
-										<h3 class="text-xl font-bold text-gray-800 mb-2">À propos de {post.author.name}</h3>
+										<h3 class="text-xl font-bold text-base-content mb-2">À propos de {post.author.name}</h3>
 										{post.author.bio && (
-											<div class="text-gray-600 leading-relaxed prose prose-sm max-w-none">
+											<div class="text-base-content/60 leading-relaxed prose prose-sm max-w-none">
 												<PortableText value={post.author.bio} />
 											</div>
 										)}
@@ -201,9 +201,9 @@ const headings = post.body?.filter((block: any) =>
 						)}
 
 						<!-- Share buttons -->
-						<div class="mt-12 pt-8 border-t border-gray-200">
+						<div class="mt-12 pt-8 border-t border-base-300">
 							<div class="flex flex-col sm:flex-row items-center justify-between gap-6">
-								<h3 class="text-lg font-semibold text-gray-800">Partager cet article</h3>
+								<h3 class="text-lg font-semibold text-base-content">Partager cet article</h3>
 								<div class="flex gap-3">
 									<button 
 										data-share-button="facebook"
@@ -241,9 +241,9 @@ const headings = post.body?.filter((block: any) =>
 											<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
 										</svg>
 									</button>
-									<button 
+									<button
 										data-share-button="copy"
-										class="w-10 h-10 rounded-full bg-gray-600 text-white flex items-center justify-center hover:bg-gray-700 transition-all duration-300 shadow-lg hover:scale-110"
+										class="w-10 h-10 rounded-full bg-base-content/60 text-white flex items-center justify-center hover:bg-base-content/70 transition-all duration-300 shadow-lg hover:scale-110"
 										aria-label="Copier le lien"
 									>
 										<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -261,28 +261,28 @@ const headings = post.body?.filter((block: any) =>
 							<>
 								{/* Desktop version - sticky sidebar */}
 								<aside class="sticky top-24 hidden xl:block">
-									<div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 max-w-xs">
+									<div class="bg-base-100 rounded-2xl shadow-lg border border-base-200 p-6 max-w-xs">
 										<div class="flex items-center gap-2 mb-4">
 											<svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
 											</svg>
-											<h3 class="font-display font-bold text-gray-800">Table des matières</h3>
+											<h3 class="font-display font-bold text-base-content">Table des matières</h3>
 										</div>
-										
+
 										<nav class="space-y-2">
 											{headings.map((heading: any) => {
-												const indentClass = heading.level === 2 ? '' : 
-													heading.level === 3 ? 'ml-4' : 
+												const indentClass = heading.level === 2 ? '' :
+													heading.level === 3 ? 'ml-4' :
 													heading.level === 4 ? 'ml-8' : 'ml-12';
-												
+
 												const textSizeClass = heading.level === 2 ? 'text-sm font-medium' :
 													heading.level === 3 ? 'text-sm' :
 													heading.level === 4 ? 'text-xs' : 'text-xs';
-												
+
 												return (
 													<a
 														href={`#${heading.id}`}
-														class={`${indentClass} ${textSizeClass} text-gray-600 hover:text-primary transition-colors duration-200 block py-1 leading-relaxed`}
+														class={`${indentClass} ${textSizeClass} text-base-content/60 hover:text-primary transition-colors duration-200 block py-1 leading-relaxed`}
 													>
 														{heading.text}
 													</a>
@@ -317,17 +317,17 @@ const headings = post.body?.filter((block: any) =>
 										></div>
 										
 										{/* Drawer content */}
-										<div class="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl overflow-y-auto">
-											<div class="sticky top-0 bg-white border-b border-gray-100 p-4 flex items-center justify-between">
+										<div class="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-base-100 shadow-2xl overflow-y-auto">
+											<div class="sticky top-0 bg-base-100 border-b border-base-200 p-4 flex items-center justify-between">
 												<div class="flex items-center gap-2">
 													<svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 														<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
 													</svg>
-													<h3 class="font-display font-bold text-gray-800">Table des matières</h3>
+													<h3 class="font-display font-bold text-base-content">Table des matières</h3>
 												</div>
-												<button 
+												<button
 													id="toc-drawer-close"
-													class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-200 flex items-center justify-center"
+													class="w-8 h-8 rounded-full bg-base-200 hover:bg-base-300 transition-colors duration-200 flex items-center justify-center"
 													aria-label="Fermer"
 												>
 													<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -335,21 +335,21 @@ const headings = post.body?.filter((block: any) =>
 													</svg>
 												</button>
 											</div>
-											
+
 											<nav class="p-4 space-y-2">
 												{headings.map((heading: any) => {
-													const indentClass = heading.level === 2 ? '' : 
-														heading.level === 3 ? 'ml-4' : 
+													const indentClass = heading.level === 2 ? '' :
+														heading.level === 3 ? 'ml-4' :
 														heading.level === 4 ? 'ml-8' : 'ml-12';
-													
+
 													const textSizeClass = heading.level === 2 ? 'text-sm font-medium' :
 														heading.level === 3 ? 'text-sm' :
 														heading.level === 4 ? 'text-xs' : 'text-xs';
-													
+
 													return (
 														<a
 															href={`#${heading.id}`}
-															class={`${indentClass} ${textSizeClass} text-gray-600 hover:text-primary transition-colors duration-200 block py-2 leading-relaxed rounded-lg hover:bg-primary/5`}
+															class={`${indentClass} ${textSizeClass} text-base-content/60 hover:text-primary transition-colors duration-200 block py-2 leading-relaxed rounded-lg hover:bg-primary/5`}
 														>
 															{heading.text}
 														</a>
@@ -370,10 +370,10 @@ const headings = post.body?.filter((block: any) =>
 		<div class="bg-gradient-to-br from-primary/5 to-secondary/5 py-16">
 			<div class="container mx-auto px-4">
 				<div class="max-w-4xl mx-auto text-center">
-					<h3 class="text-3xl font-display font-bold text-gray-800 mb-4">
+					<h3 class="text-3xl font-display font-bold text-base-content mb-4">
 						Continuez votre voyage spirituel
 					</h3>
-					<p class="text-gray-600 mb-8">
+					<p class="text-base-content/60 mb-8">
 						Découvrez nos accompagnements personnalisés pour approfondir votre cheminement
 					</p>
 					<div class="flex flex-col sm:flex-row gap-4 justify-center">
