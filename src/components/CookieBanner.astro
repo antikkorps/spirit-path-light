@@ -7,7 +7,7 @@
 	class="fixed bottom-0 left-0 right-0 z-[9999] transform translate-y-full transition-transform duration-500 ease-out"
 	style="display: none;"
 >
-	<div class="bg-white border-t-2 border-primary/20 shadow-2xl">
+	<div class="bg-base-100 border-t-2 border-primary/20 shadow-2xl">
 		<div class="container mx-auto px-4 py-6">
 			<div class="flex flex-col lg:flex-row items-start lg:items-center gap-6">
 				<!-- Icon and content -->
@@ -19,8 +19,8 @@
 							</svg>
 						</div>
 						<div>
-							<h3 class="font-bold text-gray-800 text-lg mb-2">🍪 Gestion des cookies</h3>
-							<p class="text-gray-600 text-sm leading-relaxed">
+							<h3 class="font-bold text-base-content text-lg mb-2">🍪 Gestion des cookies</h3>
+							<p class="text-base-content/70 text-sm leading-relaxed">
 								Ce site utilise des cookies nécessaires à son fonctionnement. Nous respectons votre vie privée
 								et collectons uniquement des données anonymisées pour améliorer votre expérience.
 								<a href="/politique-confidentialite" class="text-primary hover:underline font-medium">
@@ -35,13 +35,13 @@
 				<div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
 					<button
 						id="cookie-settings-btn"
-						class="px-6 py-3 rounded-lg border-2 border-gray-300 text-gray-700 font-medium hover:border-primary hover:text-primary transition-all duration-300 whitespace-nowrap"
+						class="px-6 py-3 rounded-lg border-2 border-base-300 text-base-content font-medium hover:border-primary hover:text-primary transition-all duration-300 whitespace-nowrap"
 					>
 						Personnaliser
 					</button>
 					<button
 						id="cookie-reject-btn"
-						class="px-6 py-3 rounded-lg border-2 border-gray-300 text-gray-700 font-medium hover:border-secondary hover:text-secondary transition-all duration-300 whitespace-nowrap"
+						class="px-6 py-3 rounded-lg border-2 border-base-300 text-base-content font-medium hover:border-secondary hover:text-secondary transition-all duration-300 whitespace-nowrap"
 					>
 						Refuser
 					</button>
@@ -63,21 +63,21 @@
 	class="fixed inset-0 z-[10000] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
 	style="display: none;"
 >
-	<div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+	<div class="bg-base-100 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
 		<div class="p-8">
 			<!-- Header -->
 			<div class="flex items-start justify-between mb-6">
 				<div>
-					<h2 class="text-3xl font-display font-bold text-gray-800 mb-2">
+					<h2 class="text-3xl font-display font-bold text-base-content mb-2">
 						Paramètres des cookies
 					</h2>
-					<p class="text-gray-600">
+					<p class="text-base-content/70">
 						Choisissez les cookies que vous souhaitez autoriser
 					</p>
 				</div>
 				<button
 					id="cookie-modal-close"
-					class="text-gray-400 hover:text-gray-600 transition-colors"
+					class="text-gray-400 hover:text-base-content/70 transition-colors"
 					aria-label="Fermer"
 				>
 					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -89,15 +89,15 @@
 			<!-- Cookie types -->
 			<div class="space-y-6 mb-8">
 				<!-- Necessary -->
-				<div class="p-4 bg-gray-50 rounded-xl border border-gray-200">
+				<div class="p-4 bg-base-200 rounded-xl border border-gray-200">
 					<div class="flex items-center justify-between mb-2">
 						<div class="flex items-center gap-3">
-							<svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+							<svg class="w-6 h-6 text-success" fill="currentColor" viewBox="0 0 20 20">
 								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
 							</svg>
 							<div>
-								<h3 class="font-semibold text-gray-800">Cookies nécessaires</h3>
-								<p class="text-sm text-gray-600">Toujours actifs</p>
+								<h3 class="font-semibold text-base-content">Cookies nécessaires</h3>
+								<p class="text-sm text-base-content/70">Toujours actifs</p>
 							</div>
 						</div>
 						<input
@@ -107,73 +107,73 @@
 							class="w-12 h-6 rounded-full bg-green-500 cursor-not-allowed"
 						/>
 					</div>
-					<p class="text-sm text-gray-600 mt-2">
+					<p class="text-sm text-base-content/70 mt-2">
 						Ces cookies sont essentiels au fonctionnement du site et ne peuvent pas être désactivés.
 					</p>
 				</div>
 
 				<!-- Analytics -->
-				<div class="p-4 bg-white rounded-xl border-2 border-gray-200 hover:border-primary/30 transition-colors">
+				<div class="p-4 bg-base-100 rounded-xl border-2 border-gray-200 hover:border-primary/30 transition-colors">
 					<div class="flex items-center justify-between mb-2">
 						<div class="flex items-center gap-3">
 							<svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
 							</svg>
 							<div>
-								<h3 class="font-semibold text-gray-800">Cookies analytiques</h3>
-								<p class="text-sm text-gray-600">Optionnel</p>
+								<h3 class="font-semibold text-base-content">Cookies analytiques</h3>
+								<p class="text-sm text-base-content/70">Optionnel</p>
 							</div>
 						</div>
 						<label class="relative inline-flex items-center cursor-pointer">
 							<input type="checkbox" id="cookie-analytics" class="sr-only peer">
-							<div class="w-12 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-6 after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+							<div class="w-12 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-6 after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-base-100 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
 						</label>
 					</div>
-					<p class="text-sm text-gray-600 mt-2">
+					<p class="text-sm text-base-content/70 mt-2">
 						Ces cookies nous aident à comprendre comment vous utilisez le site pour l'améliorer (données anonymisées).
 					</p>
 				</div>
 
 				<!-- Marketing -->
-				<div class="p-4 bg-white rounded-xl border-2 border-gray-200 hover:border-secondary/30 transition-colors">
+				<div class="p-4 bg-base-100 rounded-xl border-2 border-gray-200 hover:border-secondary/30 transition-colors">
 					<div class="flex items-center justify-between mb-2">
 						<div class="flex items-center gap-3">
 							<svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
 							</svg>
 							<div>
-								<h3 class="font-semibold text-gray-800">Cookies marketing</h3>
-								<p class="text-sm text-gray-600">Optionnel</p>
+								<h3 class="font-semibold text-base-content">Cookies marketing</h3>
+								<p class="text-sm text-base-content/70">Optionnel</p>
 							</div>
 						</div>
 						<label class="relative inline-flex items-center cursor-pointer">
 							<input type="checkbox" id="cookie-marketing" class="sr-only peer">
-							<div class="w-12 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-secondary/20 rounded-full peer peer-checked:after:translate-x-6 after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+							<div class="w-12 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-secondary/20 rounded-full peer peer-checked:after:translate-x-6 after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-base-100 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
 						</label>
 					</div>
-					<p class="text-sm text-gray-600 mt-2">
+					<p class="text-sm text-base-content/70 mt-2">
 						Ces cookies permettent de personnaliser le contenu publicitaire que vous voyez.
 					</p>
 				</div>
 
 				<!-- Preferences -->
-				<div class="p-4 bg-white rounded-xl border-2 border-gray-200 hover:border-accent/30 transition-colors">
+				<div class="p-4 bg-base-100 rounded-xl border-2 border-gray-200 hover:border-accent/30 transition-colors">
 					<div class="flex items-center justify-between mb-2">
 						<div class="flex items-center gap-3">
 							<svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
 							</svg>
 							<div>
-								<h3 class="font-semibold text-gray-800">Cookies de préférences</h3>
-								<p class="text-sm text-gray-600">Optionnel</p>
+								<h3 class="font-semibold text-base-content">Cookies de préférences</h3>
+								<p class="text-sm text-base-content/70">Optionnel</p>
 							</div>
 						</div>
 						<label class="relative inline-flex items-center cursor-pointer">
 							<input type="checkbox" id="cookie-preferences" class="sr-only peer">
-							<div class="w-12 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-accent/20 rounded-full peer peer-checked:after:translate-x-6 after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-accent"></div>
+							<div class="w-12 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-accent/20 rounded-full peer peer-checked:after:translate-x-6 after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-base-100 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-accent"></div>
 						</label>
 					</div>
-					<p class="text-sm text-gray-600 mt-2">
+					<p class="text-sm text-base-content/70 mt-2">
 						Ces cookies permettent de mémoriser vos préférences (langue, thème, etc.).
 					</p>
 				</div>

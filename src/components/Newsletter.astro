@@ -13,11 +13,11 @@ const { variant = "default", showNames = false } = Astro.props
       <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary via-purple-600 to-secondary p-1 shadow-2xl hover:shadow-3xl transition-all duration-500 group">
         <!-- Animated background elements -->
         <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/20 rounded-3xl"></div>
-        <div class="absolute top-0 left-1/4 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
-        <div class="absolute bottom-0 right-1/4 w-24 h-24 bg-white/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+        <div class="absolute top-0 left-1/4 w-32 h-32 bg-base-100/10 rounded-full blur-2xl animate-pulse"></div>
+        <div class="absolute bottom-0 right-1/4 w-24 h-24 bg-base-100/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
         
         <!-- Main content -->
-        <div class="relative bg-white rounded-3xl p-8 md:p-12 text-center">
+        <div class="relative bg-base-100 rounded-3xl p-8 md:p-12 text-center">
           <!-- Floating icon with animation -->
           <div class="relative mb-8">
             <div class="w-20 h-20 mx-auto relative">
@@ -55,7 +55,7 @@ const { variant = "default", showNames = false } = Astro.props
             <h3 class="text-4xl md:text-5xl font-display font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-3">
               Restez inspiré·e
             </h3>
-            <div class="flex items-center justify-center gap-2 text-sm text-gray-500">
+            <div class="flex items-center justify-center gap-2 text-sm text-base-content/60">
               <span class="inline-flex items-center gap-1">
                 <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
@@ -74,7 +74,7 @@ const { variant = "default", showNames = false } = Astro.props
           </div>
 
           <!-- Enhanced description -->
-          <p class="text-gray-600 text-lg leading-relaxed mb-8 max-w-lg mx-auto">
+          <p class="text-base-content/70 text-lg leading-relaxed mb-8 max-w-lg mx-auto">
             Recevez des <span class="font-semibold text-primary">conseils spirituels exclusifs</span>, 
             des <span class="font-semibold text-secondary">méditations guidées</span> et 
             des <span class="font-semibold text-purple-600">histoires inspirantes</span> 
@@ -90,7 +90,7 @@ const { variant = "default", showNames = false } = Astro.props
                     type="email"
                     name="email"
                     placeholder="✨ Votre adresse email"
-                    class="w-full px-6 py-4 pr-12 rounded-2xl border-2 border-gray-200 bg-gray-50 focus:border-primary focus:bg-white focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all duration-300 text-gray-800 placeholder-gray-400"
+                    class="w-full px-6 py-4 pr-12 rounded-2xl border-2 border-gray-200 bg-base-200 focus:border-primary focus:bg-base-100 focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all duration-300 text-base-content placeholder-gray-400"
                     required
                   />
                   <!-- Email icon -->
@@ -116,7 +116,7 @@ const { variant = "default", showNames = false } = Astro.props
               </div>
               
               <!-- Privacy note -->
-              <p class="text-xs text-gray-500 mt-3 text-center">
+              <p class="text-xs text-base-content/60 mt-3 text-center">
                 <svg class="w-3 h-3 inline mr-1" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
                 </svg>
@@ -129,7 +129,7 @@ const { variant = "default", showNames = false } = Astro.props
 
           <!-- Social proof / trust indicators -->
           <div class="mt-8 pt-6 border-t border-gray-100">
-            <div class="flex items-center justify-center gap-6 text-sm text-gray-500">
+            <div class="flex items-center justify-center gap-6 text-sm text-base-content/60">
               <div class="flex items-center gap-1">
                 <div class="flex -space-x-2">
                   <div class="w-6 h-6 bg-primary/20 rounded-full border-2 border-white flex items-center justify-center">
@@ -153,7 +153,7 @@ const { variant = "default", showNames = false } = Astro.props
 
   {
     variant === "inline" && (
-      <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 transition-colors duration-300">
+      <div class="bg-base-100 dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 transition-colors duration-300">
         <div class="flex items-center gap-4 mb-4">
           <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
             <svg
@@ -171,8 +171,8 @@ const { variant = "default", showNames = false } = Astro.props
             </svg>
           </div>
           <div>
-            <h4 class="font-bold text-gray-800 dark:text-gray-100 text-lg">Newsletter</h4>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Restez connecté·e</p>
+            <h4 class="font-bold text-base-content dark:text-gray-100 text-lg">Newsletter</h4>
+            <p class="text-sm text-base-content/70 dark:text-gray-400">Restez connecté·e</p>
           </div>
         </div>
         <form class="newsletter-form" data-newsletter-form>
@@ -216,10 +216,10 @@ const { variant = "default", showNames = false } = Astro.props
   {
     variant === "centered" && (
       <div class="max-w-md mx-auto text-center">
-        <h3 class="text-2xl font-display font-bold text-gray-800 dark:text-gray-100 mb-3">
+        <h3 class="text-2xl font-display font-bold text-base-content dark:text-gray-100 mb-3">
           Newsletter
         </h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-6">Ne manquez aucune inspiration</p>
+        <p class="text-base-content/70 dark:text-gray-300 mb-6">Ne manquez aucune inspiration</p>
         <form class="newsletter-form" data-newsletter-form>
           <input
             type="email"
