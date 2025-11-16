@@ -26,7 +26,7 @@ const { title, subtitle, description, modalites, prix, livrable, public: publicV
 			<img src={imageUrl} alt={imageAlt} class="w-full h-64 object-cover object-center" loading="lazy" />
 			<div class={`absolute inset-0 bg-gradient-to-t from-${buttonColor}/30 via-transparent to-transparent`}></div>
 			<div class="absolute bottom-4 left-4 right-4">
-				<div class={`inline-block px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-${buttonColor} text-sm font-semibold`}>
+				<div class={`inline-block px-3 py-1 bg-base-100/90 backdrop-blur-sm rounded-full text-${buttonColor} text-sm font-semibold`}>
 					{title}
 				</div>
 			</div>
@@ -34,16 +34,16 @@ const { title, subtitle, description, modalites, prix, livrable, public: publicV
 		<!-- Header avec icône et titre -->
 		<div class="text-center mb-8">
 			<div class={`w-16 h-16 rounded-full bg-gradient-to-br from-${buttonColor} to-${buttonColor}/80 flex items-center justify-center shadow-lg mx-auto mb-4`}>
-				<div class={`w-8 h-8 rounded-full bg-white/90`}></div>
+				<div class={`w-8 h-8 rounded-full bg-base-100/90`}></div>
 			</div>
 			<h3 class={`text-3xl font-display text-${buttonColor} mb-2`}>{title}</h3>
 			<div class={`h-1 w-24 bg-gradient-to-r from-${buttonColor} to-${buttonColor}/60 rounded-full mx-auto mb-4`}></div>
-			<p class="text-gray-600 italic leading-relaxed text-lg">{subtitle}</p>
+			<p class="text-base-content/70 italic leading-relaxed text-lg">{subtitle}</p>
 		</div>
 
 		<!-- Description mise en valeur -->
-		<div class={`bg-white/60 backdrop-blur-sm p-6 rounded-xl mb-8 border-l-4 border-${buttonColor} shadow-inner`}>
-			<p class="text-gray-700 leading-relaxed text-base">
+		<div class={`bg-base-100/60 backdrop-blur-sm p-6 rounded-xl mb-8 border-l-4 border-${buttonColor} shadow-inner`}>
+			<p class="text-base-content leading-relaxed text-base">
 				{description}
 			</p>
 		</div>
@@ -51,59 +51,59 @@ const { title, subtitle, description, modalites, prix, livrable, public: publicV
 		<!-- Détails du service -->
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
 			<div class="space-y-4">
-				<div class="flex items-center gap-4 p-4 rounded-lg hover:bg-white/40 transition-colors">
+				<div class="flex items-center gap-4 p-4 rounded-lg hover:bg-base-100/40 transition-colors">
 					<div class={`w-12 h-12 rounded-lg bg-gradient-to-br from-${buttonColor}/20 to-${buttonColor}/10 flex items-center justify-center shadow-sm`}>
 						<Icon name="clock" size="md" className={`text-${buttonColor}`} />
 					</div>
 					<div>
 						<span class={`font-semibold text-${buttonColor} text-sm uppercase tracking-wide block`}>Modalités</span>
-						<p class="text-gray-600 text-sm mt-1">{modalites}</p>
+						<p class="text-base-content/70 text-sm mt-1">{modalites}</p>
 					</div>
 				</div>
 
-				<div class="flex items-center gap-4 p-4 rounded-lg hover:bg-white/40 transition-colors">
+				<div class="flex items-center gap-4 p-4 rounded-lg hover:bg-base-100/40 transition-colors">
 					<div class={`w-12 h-12 rounded-lg bg-gradient-to-br from-${buttonColor}/20 to-${buttonColor}/10 flex items-center justify-center shadow-sm`}>
 						<Icon name="euro" size="md" className={`text-${buttonColor}`} />
 					</div>
 					<div>
 						<span class={`font-semibold text-${buttonColor} text-sm uppercase tracking-wide block`}>Prix</span>
-						<p class="text-gray-600 text-sm mt-1">{prix}</p>
+						<p class="text-base-content/70 text-sm mt-1">{prix}</p>
 					</div>
 				</div>
 			</div>
 
 			<div class="space-y-4">
-				<div class="flex items-center gap-4 p-4 rounded-lg hover:bg-white/40 transition-colors">
+				<div class="flex items-center gap-4 p-4 rounded-lg hover:bg-base-100/40 transition-colors">
 					<div class={`w-12 h-12 rounded-lg bg-gradient-to-br from-${buttonColor}/20 to-${buttonColor}/10 flex items-center justify-center shadow-sm`}>
 						<Icon name="file-text" size="md" className={`text-${buttonColor}`} />
 					</div>
 					<div>
 						<span class={`font-semibold text-${buttonColor} text-sm uppercase tracking-wide block`}>Livrable</span>
-						<p class="text-gray-600 text-sm mt-1">{livrable}</p>
+						<p class="text-base-content/70 text-sm mt-1">{livrable}</p>
 					</div>
 				</div>
 
-				<div class="flex items-center gap-4 p-4 rounded-lg hover:bg-white/40 transition-colors">
+				<div class="flex items-center gap-4 p-4 rounded-lg hover:bg-base-100/40 transition-colors">
 					<div class={`w-12 h-12 rounded-lg bg-gradient-to-br from-${buttonColor}/20 to-${buttonColor}/10 flex items-center justify-center shadow-sm`}>
 						<Icon name="users" size="md" className={`text-${buttonColor}`} />
 					</div>
 					<div>
 						<span class={`font-semibold text-${buttonColor} text-sm uppercase tracking-wide block`}>Public</span>
-						<p class="text-gray-600 text-sm mt-1">{publicVisé}</p>
+						<p class="text-base-content/70 text-sm mt-1">{publicVisé}</p>
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<!-- Préparation -->
-		<div class="bg-white/40 backdrop-blur-sm p-6 rounded-xl mb-8">
+		<div class="bg-base-100/40 backdrop-blur-sm p-6 rounded-xl mb-8">
 			<div class="flex items-start gap-4">
 				<div class={`w-12 h-12 rounded-lg bg-gradient-to-br from-${buttonColor}/20 to-${buttonColor}/10 flex items-center justify-center shadow-sm mt-1`}>
 					<Icon name="list" size="md" className={`text-${buttonColor}`} />
 				</div>
 				<div class="flex-1">
 					<span class={`font-semibold text-${buttonColor} text-sm uppercase tracking-wide block mb-3`}>Préparation</span>
-					<div class="text-gray-600 text-sm space-y-2">
+					<div class="text-base-content/70 text-sm space-y-2">
 						{preparation.map(item => (
 							<div class="flex items-center gap-3">
 								<Icon name="check" size="xs" className={`text-${buttonColor} flex-shrink-0`} />
