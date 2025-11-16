@@ -90,7 +90,7 @@ const { variant = "default", showNames = false } = Astro.props
                     type="email"
                     name="email"
                     placeholder="✨ Votre adresse email"
-                    class="w-full px-6 py-4 pr-12 rounded-2xl border-2 border-gray-200 bg-base-200 focus:border-primary focus:bg-base-100 focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all duration-300 text-base-content placeholder-gray-400"
+                    class="w-full px-6 py-4 pr-12 rounded-2xl border-2 border-gray-200 bg-gray-50 focus:border-primary focus:bg-white focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all duration-300 text-gray-800 placeholder-base-content/50"
                     required
                   />
                   <!-- Email icon -->
@@ -128,17 +128,17 @@ const { variant = "default", showNames = false } = Astro.props
           </form>
 
           <!-- Social proof / trust indicators -->
-          <div class="mt-8 pt-6 border-t border-gray-100">
-            <div class="flex items-center justify-center gap-6 text-sm text-base-content/60">
+          <div class="mt-8 pt-6 border-t border-base-300">
+            <div class="flex items-center justify-center gap-6 text-sm text-gray-500">
               <div class="flex items-center gap-1">
                 <div class="flex -space-x-2">
-                  <div class="w-6 h-6 bg-primary/20 rounded-full border-2 border-white flex items-center justify-center">
+                  <div class="w-6 h-6 bg-primary/20 rounded-full border-2 border-base-100 flex items-center justify-center">
                     <span class="text-xs font-bold text-primary">✨</span>
                   </div>
-                  <div class="w-6 h-6 bg-secondary/20 rounded-full border-2 border-white flex items-center justify-center">
+                  <div class="w-6 h-6 bg-secondary/20 rounded-full border-2 border-base-100 flex items-center justify-center">
                     <span class="text-xs font-bold text-secondary">🌟</span>
                   </div>
-                  <div class="w-6 h-6 bg-purple-100 rounded-full border-2 border-white flex items-center justify-center">
+                  <div class="w-6 h-6 bg-purple-100 rounded-full border-2 border-base-100 flex items-center justify-center">
                     <span class="text-xs font-bold text-purple-600">💫</span>
                   </div>
                 </div>
@@ -153,7 +153,7 @@ const { variant = "default", showNames = false } = Astro.props
 
   {
     variant === "inline" && (
-      <div class="bg-base-100 dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 transition-colors duration-300">
+      <div class="bg-base-100 rounded-xl p-6 shadow-lg border border-base-300 transition-colors duration-300">
         <div class="flex items-center gap-4 mb-4">
           <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
             <svg
@@ -171,8 +171,8 @@ const { variant = "default", showNames = false } = Astro.props
             </svg>
           </div>
           <div>
-            <h4 class="font-bold text-base-content dark:text-gray-100 text-lg">Newsletter</h4>
-            <p class="text-sm text-base-content/70 dark:text-gray-400">Restez connecté·e</p>
+            <h4 class="font-bold text-base-content text-lg">Newsletter</h4>
+            <p class="text-sm text-base-content/70">Restez connecté·e</p>
           </div>
         </div>
         <form class="newsletter-form" data-newsletter-form>
@@ -216,10 +216,10 @@ const { variant = "default", showNames = false } = Astro.props
   {
     variant === "centered" && (
       <div class="max-w-md mx-auto text-center">
-        <h3 class="text-2xl font-display font-bold text-base-content dark:text-gray-100 mb-3">
+        <h3 class="text-2xl font-display font-bold text-base-content mb-3">
           Newsletter
         </h3>
-        <p class="text-base-content/70 dark:text-gray-300 mb-6">Ne manquez aucune inspiration</p>
+        <p class="text-base-content/70 mb-6">Ne manquez aucune inspiration</p>
         <form class="newsletter-form" data-newsletter-form>
           <input
             type="email"
