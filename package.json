@@ -21,7 +21,7 @@
     "astro-portabletext": "^0.11.3"
   },
   "devDependencies": {
-    "concurrently": "^9.2.1",
+    "concurrently": "^10.0.3",
     "daisyui": "^5.4.7"
   }
 }
